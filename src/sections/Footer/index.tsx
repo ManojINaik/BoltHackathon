@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
             <span role="img" aria-label="blue heart emoji">
               💙
             </span>{" "}
-            in <ConditionalBreak /> Waterloo, Ontario, World{" "}
+            in <ConditionalBreak />Bolt.New York City{" "}
             <span role="img" aria-label="Canadian flag">
               🇨🇦
             </span>
