@@ -420,7 +420,7 @@ const ThreeModel = ({
   autoRotate = true,
   className,
   animationName,
-  animationStartTime = 6.0,
+  animationStartTime = 3.0,
   animationEndTime = 8.75,
   scrollProgress = 0,
 }: ThreeModelProps): JSX.Element => {
