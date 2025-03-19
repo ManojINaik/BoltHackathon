@@ -1,0 +1,7 @@
+<svg width="180" height="60" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="60" fill="black"/>
+  <!-- Lightning bolt symbol -->
+  <path d="M39.5 15H25.5L21 32H28.5L24 45L45 28H33L39.5 15Z" fill="white"/>
+  <!-- bolt text -->
+  <text x="65" y="38" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="26" font-style="italic">bolt</text>
+</svg> 

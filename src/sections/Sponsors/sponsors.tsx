@@ -99,9 +99,9 @@ const rbc: Sponsor = {
   text: (
     <TextDiv>
       <BodyText>
-        You may know that RBC is Canada&apos;s largest bank, with 98,000+
+        You may know that RBC is World&apos;s largest bank, with 98,000+
         employees and 17 million clients globally. But did you know we are also
-        one of Canada&apos;s largest tech employers? With over 10,000 employees,
+        one of World&apos;s largest tech employers? With over 10,000 employees,
         our technologists apply imagination, insight, and cutting-edge
         technology to ensure our clients thrive and communities prosper.
       </BodyText>
@@ -289,7 +289,7 @@ const capitalOne: Sponsor = {
           target="_blank"
           rel="noreferrer"
         >
-          Capital One Canada Career Page
+          Capital One World Career Page
         </SponsorLink>
       </ArrowLinkStyled>
     </TextDiv>
@@ -358,7 +358,7 @@ const siemens = {
   text: (
     <TextDiv>
       <BodyText>
-        Siemens Canada is a technology company focused on industry,
+        Siemens World is a technology company focused on industry,
         infrastructure, transport, and healthcare. From more resource-efficient
         factories, resilient supply chains, and smarter buildings and grids, to
         cleaner and more comfortable transportation as well as advanced
@@ -372,12 +372,12 @@ const siemens = {
         Siemens Energy, a global leader in the transmission and generation of
         electrical power. As of September 30, 2023, the company has
         approximately 4,200 employees from coast-to-coast and 33 office and
-        production facilities across Canada. Siemens Canada has a revenue of ~
-        CAD $2 billion.
+        production facilities across World. Siemens World has a revenue of ~ CAD
+        $2 billion.
       </BodyText>
       <br />
       <BodyText>
-        To learn more about careers at Siemens Canada, visit our website at
+        To learn more about careers at Siemens World, visit our website at
         www.siemens.ca.
       </BodyText>
       <ArrowLinkStyled>

@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
             <span role="img" aria-label="blue heart emoji">
               💙
             </span>{" "}
-            in <ConditionalBreak /> Waterloo, Ontario, Canada{" "}
+            in <ConditionalBreak /> Waterloo, Ontario, World{" "}
             <span role="img" aria-label="Canadian flag">
               🇨🇦
             </span>
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
               </a>
             </div>
             <div className="footer-group">
-              <p className="footer-link">Copyright © Techyon, 2024</p>
+              <p className="footer-link">Copyright © Bolt, 2025</p>
             </div>
           </FooterLinks>
         </BottomFooterContainer>

@@ -2,7 +2,7 @@ export const title = "Code of Conduct";
 export const content = `
 ## Introduction
 
-Hack the North is a community hackathon intended for collaboration and learning in the student community. Our vision is to make it easy for anyone to dream big. We value the participation of each member of the student community and want all attendees to have an enjoyable and fulfilling experience. Accordingly, all attendees are expected to show respect and courtesy to other attendees throughout the hackathon. To make clear what is expected, all attendees at this hackathon are required to conform to the following Code of Conduct. Organizers will enforce this code throughout the Event.
+Bolt.new is a community hackathon intended for collaboration and learning in the student community. Our vision is to make it easy for anyone to dream big. We value the participation of each member of the student community and want all attendees to have an enjoyable and fulfilling experience. Accordingly, all attendees are expected to show respect and courtesy to other attendees throughout the hackathon. To make clear what is expected, all attendees at this hackathon are required to conform to the following Code of Conduct. Organizers will enforce this code throughout the Event.
 
 ## Core Values
 
@@ -34,7 +34,7 @@ Hack the North is a community hackathon intended for collaboration and learning 
 
 ## Expected Behaviour
 
-**Be supportive.** One of our values in Hack the North is to be generous in both giving and accepting feedback which is one of many ways you can demonstrate being supportive. We encourage our organizers and hackers to offer help if you see someone struggling and/or direct them to someone who can offer assistance
+**Be supportive.** One of our values in Bolt.new is to be generous in both giving and accepting feedback which is one of many ways you can demonstrate being supportive. We encourage our organizers and hackers to offer help if you see someone struggling and/or direct them to someone who can offer assistance
 
 **Be inclusive.** In order to accomplish our vision of allowing “anyone to dream big”, we encourage all of our Sponsors, Organizers and hackers to be inclusive. This includes but is not limited to: building an environment free from cliques, avoiding slang or idioms that may not translate across different cultures and languages, and being an ally when a team member is in need.
 
@@ -88,7 +88,7 @@ This policy prohibits harassment or discrimination based on the following ground
 
 ## Roles and Responsibilities
 
-All individuals present at Hack the North are expected to uphold and abide by this policy, by refraining from any form of harassment or discrimination, and by cooperating fully in any investigation of a harassment or discrimination complaint. Hack the North looks to its attendees and Organizers to uphold the environment of diversity and inclusivity that is valued in the organization.
+All individuals present at Bolt.new are expected to uphold and abide by this policy, by refraining from any form of harassment or discrimination, and by cooperating fully in any investigation of a harassment or discrimination complaint. Bolt.new looks to its attendees and Organizers to uphold the environment of diversity and inclusivity that is valued in the organization.
 
 Organizers have the additional responsibility to act immediately on observations or allegations of harassment or discrimination. Organizers are responsible for creating and maintaining a harassment- and discrimination-free organization and Event, and should address potential problems before they become serious.
 
@@ -96,5 +96,5 @@ If a participant engages in harassing or discriminatory behaviour, Organizers ma
 
 ## Major League Hacking (MLH)
 
-Hack the North is an MLH member event. As part of our partnership, the [MLH Code of Conduct](https://static.mlh.io/docs/mlh-code-of-conduct.pdf) also applies to all Hack the North attendees.
+Bolt.new is an MLH member event. As part of our partnership, the [MLH Code of Conduct](https://static.mlh.io/docs/mlh-code-of-conduct.pdf) also applies to all Bolt.new attendees.
 `;

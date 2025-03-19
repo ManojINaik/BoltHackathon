@@ -1,31 +1,31 @@
 #!/bin/bash
 
 # Command for running this bash script (hosted)
-# curl -s -N 'https://hackthenorth.com/warp_theme_installer.sh' | bash
+# curl -s -N 'https://Bolt.new/warp_theme_installer.sh' | bash
 # Command for running this bash script (local), also please 
 # ensure you've added execute permissions! (chmod +x ./warp_theme_installer.sh):
 # ./warp_theme_installer.sh
 
 # Theme Configuration
-readonly THEME_NAME="hack_the_north_2024"
+readonly THEME_NAME="hack_the_north_2025"
 readonly THEME_CONTENT='
-# Hack the North 2024 Warp Theme
+# Bolt.new 2025 Warp Theme
 #
-# Exclusive theme for Hack the North attendees. 
+# Exclusive theme for Bolt.new attendees. 
 # Please see documentation for Warp themes at:
 # https://docs.warp.dev/features/themes
 # You can find more themes at:
 # https://github.com/warpdotdev/themes
 #
 # Credits for design assets go to the Hack the 
-# North team (https://hackthenorth.com/).
+# North team (https://Bolt.new/).
 
 ---
 background: "#1d1d1d"
 accent: "#aedacd"
 foreground: "#ffffff"
 background_image:
-  path: "hack_the_north_2024_warp_bg.png"
+  path: "hack_the_north_2025_warp_bg.png"
   opacity: 20
 details: darker
 terminal_colors:
@@ -47,7 +47,7 @@ terminal_colors:
     magenta: "#ffb1fe"
     cyan: "#e5e6fe"
     white: "#feffff"
-name: "Hack the North 2024"
+name: "Bolt.new 2025"
 '
 # Warp Variables
 readonly WARP_THEME_DIR="$HOME/.warp/themes"
@@ -60,10 +60,10 @@ readonly GREEN_BOLD="\033[1;32m"
 readonly RED_BOLD="\033[1;31m"
 readonly BACKGROUND_LIGHT_GREEN="\033[102m"
 readonly BACKGROUND_LIGHT_RED="\033[101m"
-# Hack the North background image
-readonly HACK_THE_NORTH_IMAGE_NAME="hack_the_north_2024_warp_bg.png"
-readonly HACK_THE_NORTH_IMAGE_PATH="https://hackthenorth.com/${HACK_THE_NORTH_IMAGE_NAME}"
-curl "https://hackthenorth.com/hack_the_north_2024_warp_bg.png" --output "${WARP_THEME_DIR}/${HACK_THE_NORTH_IMAGE_NAME}"
+# Bolt.new background image
+readonly HACK_THE_NORTH_IMAGE_NAME="hack_the_north_2025_warp_bg.png"
+readonly HACK_THE_NORTH_IMAGE_PATH="https://Bolt.new/${HACK_THE_NORTH_IMAGE_NAME}"
+curl "https://Bolt.new/hack_the_north_2025_warp_bg.png" --output "${WARP_THEME_DIR}/${HACK_THE_NORTH_IMAGE_NAME}"
 printf "${GREEN_BOLD}✓${RESET} ${BOLD}Installing theme:${RESET}${DIM} ${THEME_NAME}${RESET}\n"
 # Check if WARP_THEME_DIR exists
 if [ ! -d "${WARP_THEME_DIR}" ]; then
@@ -80,8 +80,8 @@ if [ -f "${WARP_THEME_DIR}/${THEME_NAME}.yaml" ]; then
 fi
 touch "${WARP_THEME_DIR}/${THEME_NAME}.yaml"
 echo "${THEME_CONTENT}" > "${WARP_THEME_DIR}/${THEME_NAME}.yaml"	
-printf "${GREEN_BOLD}✓${RESET} ${GREEN}Successfully installed the Hack the North 2024 theme!\n\n"
+printf "${GREEN_BOLD}✓${RESET} ${GREEN}Successfully installed the Bolt.new 2025 theme!\n\n"
 printf "${BLACK}${BACKGROUND_LIGHT_GREEN} Next steps ${RESET}\n\n"
-printf "You can now select the ${GREEN_BOLD}Hack the North 2024 ${RESET} theme from the Theme Picker\n\n"
+printf "You can now select the ${GREEN_BOLD}Bolt.new 2025 ${RESET} theme from the Theme Picker\n\n"
 printf "Don't know how to open the Theme Picker? ${GREEN_BOLD}https://docs.warp.dev/features/themes#how-to-access-it${RESET}\n"
 printf "${DIM}Enjoy your new theme!${RESET}\n"

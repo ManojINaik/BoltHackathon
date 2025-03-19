@@ -7,7 +7,7 @@ const sections = [
   { id: "reimbursement-policy", title: "Reimbursement Policy" },
   { id: "flights", title: "Flights" },
   { id: "driving", title: "Driving" },
-  { id: "hack-the-north-buses", title: "Hack the North Buses" },
+  { id: "hack-the-north-buses", title: "Bolt.new Buses" },
   { id: "other", title: "Other" },
   { id: "travel-restrictions", title: "Travel Restrictions" },
   { id: "visa", title: "Visa" },

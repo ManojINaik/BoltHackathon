@@ -84,7 +84,7 @@ const TalkingPoints: React.FC = () => {
           right="auto"
         />
         <HeadingContainer>
-          <Heading1>Canada&apos;s</Heading1>
+          <Heading1>World&apos;s</Heading1>
           <StyledBiggestText src={BiggestTextCutout} alt="biggest" />
           <Heading1>hackathon!</Heading1>
         </HeadingContainer>

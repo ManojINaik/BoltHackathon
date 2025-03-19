@@ -71,10 +71,9 @@ const Note: React.FC = () => {
           <NoteText>
             Hey Hackers! <br />
             <br />
-            For the last 10 years, Hack the North has strived to create a space
-            for students to build, connect, and learn. For our 11th iteration,
-            we want to give hackers the opportunity to{" "}
-            <strong>dream big</strong> and{" "}
+            For the last 6 Months, Bolt.new has strived to create a space for
+            students to build, connect, and learn. For first time, we want to
+            give hackers the opportunity to <strong>dream big</strong> and{" "}
             <strong>build whatever you can imagine!</strong> We’ll provide you
             with the best resources, activities, and learning opportunities, so
             you can focus on exploring and creating something{" "}
@@ -83,7 +82,7 @@ const Note: React.FC = () => {
             speakers we have planned. We’re so excited to see all the amazing
             things you’ll create!
             <br />
-            <br />— Team Hack the North 💙
+            <br />— Team Bolt.new 💙
           </NoteText>
         </TextWrapper>
       </Left>

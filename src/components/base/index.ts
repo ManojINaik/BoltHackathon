@@ -46,3 +46,5 @@ export { default as Glow } from "./Glow";
 export * from "./Glow";
 
 export { default as QA } from "./QA";
+
+export { default as ThreeModel } from "./ThreeModel";

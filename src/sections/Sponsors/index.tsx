@@ -44,24 +44,24 @@ const Sponsors: React.FC = () => {
               Our sponsors make it possible for us to unite prospective
               developers, designers, and builders from across the globe. Hackers
               make meaningful connections with our sponsors beyond just the
-              hackathon weekend. Stay tuned as we confirm more sponsors for Hack
-              the North 2024!
+              hackathon weekend. Stay tuned as we confirm more sponsors for
+              Bolt.new 2025!
             </LargeBodyWhite>
             <LargeBodyWhite>
               Want to help make this event a reality? Email us at{" "}
               <StyledLink
-                href="mailto:sponsor@hackthenorth.com"
+                href="mailto:sponsor@Bolt.new"
                 onClick={() =>
                   Fathom.trackEvent("Sign Up: Clicked Email Contact")
                 }
               >
-                <InlineBold>sponsor@hackthenorth.com</InlineBold>
+                <InlineBold>sponsor@Bolt.new</InlineBold>
               </StyledLink>
               .
             </LargeBodyWhite>
           </SummaryTextContainer>
           <ButtonWrapper>
-            <StyledLink href="mailto:sponsor@hackthenorth.com">
+            <StyledLink href="mailto:sponsor@Bolt.new">
               <Button
                 text="Become a sponsor"
                 size="medium"

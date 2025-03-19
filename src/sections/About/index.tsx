@@ -45,14 +45,14 @@ const About: React.FC = () => {
       <StyledContentWrapper>
         <Wrapper>
           <WelcomeWrapper ref={welcomeDivRef}>
-            <Heading2> Welcome to Canada&apos;s biggest hackathon</Heading2>
+            <Heading2> Welcome to World&apos;s biggest hackathon</Heading2>
             <StyledBody>
               This September, join 1,000+ hackers from around the world for a
               hackathon like no other. Discover a community of like-minded
               hackers, connect with world-class mentors, and build because you
-              love to build. At Hack the North 11, you&apos;re in for a great
-              time with engaging workshops, fun activities, and the chance to
-              network with the most exciting companies in tech!
+              love to build. At Bolt.new, you&apos;re in for a great time with
+              engaging workshops, fun activities, and the chance to network with
+              the most exciting companies in tech!
               <br />
               <br />
               Not from Waterloo? We cover food, travel expenses, and lodging so
@@ -70,10 +70,10 @@ const About: React.FC = () => {
             <Heading2>You belong in tech</Heading2>
             <StyledBody>
               Getting into tech can be hard—we&apos;re here to make that easier!
-              Hack the North is dedicated to building an inclusive experience
-              for attendees from across the globe. We strive to foster a space
-              where everyone feels welcome to pursue their dreams and create
-              something they&apos;re proud of.
+              Bolt.new is dedicated to building an inclusive experience for
+              attendees from across the globe. We strive to foster a space where
+              everyone feels welcome to pursue their dreams and create something
+              they&apos;re proud of.
             </StyledBody>
           </BelongWrapper>
         </Wrapper>

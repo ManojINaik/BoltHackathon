@@ -1,10 +1,11 @@
 {
-  "name": "hackthenorth.com",
+  "name": "Bolt.new",
   "version": "2022.0.24",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "set GENERATE_SOURCEMAP=false && react-scripts build",
+    "build:unix": "GENERATE_SOURCEMAP=false react-scripts build",
     "analyze": "ANALYZE=true npm run build",
     "type-check": "tsc",
     "lint": "npm run lint:ts",
@@ -16,6 +17,9 @@
     "@crello/react-lottie": "0.0.11",
     "@headlessui/react": "^1.6.1",
     "@juggle/resize-observer": "^3.3.1",
+    "@react-three/drei": "^5.3.3",
+    "@react-three/fiber": "^6.0.9",
+    "@types/three": "^0.128.0",
     "axios": "^0.28.0",
     "fathom-client": "^3.6.0",
     "framer-motion": "^4.1.16",
@@ -39,7 +43,9 @@
     "react-scrollspy": "^3.4.3",
     "react-spring": "^9.2.1",
     "react-text-loop": "^2.3.0",
+    "stats.js": "^0.17.0",
     "styled-components": "^5.3.0",
+    "three": "^0.128.0",
     "ua-parser-js": "^0.7.33"
   },
   "devDependencies": {

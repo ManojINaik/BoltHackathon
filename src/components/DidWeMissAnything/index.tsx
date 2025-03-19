@@ -67,21 +67,21 @@ const DidWeMissAnything: React.FC<DidWeMissAnythingProps> = ({
         <Subtext>Reach out to us at&nbsp;</Subtext>
         {isTravel ? (
           <StyledLink
-            href="mailto:travel@hackthenorth.com"
+            href="mailto:travel@Bolt.new"
             onClick={
               () => Fathom.trackEvent("Sign Up: Clicked Travel Contact") // Sign Up: Clicked Travel Contact
             }
           >
-            travel@hackthenorth.com
+            travel@Bolt.new
           </StyledLink>
         ) : (
           <StyledLink
-            href="mailto:hello@hackthenorth.com"
+            href="mailto:hello@Bolt.new"
             onClick={
               () => Fathom.trackEvent("Sign Up: Clicked Email Contact") // Sign Up: Clicked Email Contact
             }
           >
-            hello@hackthenorth.com
+            hello@Bolt.new
           </StyledLink>
         )}{" "}
         <span role="img" aria-label="heart emoji">
@@ -112,7 +112,7 @@ const DidWeMissAnything: React.FC<DidWeMissAnythingProps> = ({
       <MailingListSignup
         placeholder={
           windowWidth > 1125
-            ? "Sign up for the latest from Hack the North!"
+            ? "Sign up for the latest from Bolt.new!"
             : "Sign up for the latest!"
         }
       >

@@ -34,3 +34,7 @@ yarn-error.log*
 .vercel
 
 .idea/
+
+.specstory/
+
+2023.hackthenorth.com/

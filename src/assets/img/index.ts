@@ -6,7 +6,7 @@ export { default as Bubble } from "./404/bubble.png";
 export { default as RobotGoose } from "./404/robot-goose.png";
 
 // Hero
-export { default as MLHLogo } from "./hero/mlh-logo.svg";
+export { default as BoltLogo } from "./hero/bolt.svg";
 export { default as MainTitle } from "./hero/main-title.png";
 export { default as Block_1 } from "./hero/block_1.png";
 export { default as Block_2 } from "./hero/block_2.png";
@@ -44,14 +44,13 @@ export { default as RoadImg } from "./about/road-min.png";
 export { default as AboutPicturesImg } from "./about/about-pictures-min.png";
 
 // Stats
-export { default as lastPaper } from "./stats/last-paper.svg";
-export { default as statsBook } from "./stats/stats-book.png";
-export { default as workshops } from "./stats/workshops.png";
-export { default as travelled } from "./stats/travelled.png";
+export { default as lastPaper } from "./stats/This.png";
+export { default as workshops } from "./stats/theme.png";
+export { default as travelled } from "./stats/members.png";
 export { default as projects } from "./stats/projects.png";
 export { default as countries } from "./stats/countries.png";
 export { default as hackers } from "./stats/hackers.png";
-export { default as schools } from "./stats/schools.png";
+export { default as schools } from "./stats/company.png";
 export { default as mentors } from "./stats/mentors.png";
 export { default as Cloud1 } from "./testimonials/testimonial-cloud.png";
 export { default as Cloud2 } from "./testimonials/testimonial-cloud2.png";
@@ -93,9 +92,12 @@ export { default as ScaNFT4 } from "./projects/ScaNFT4.png";
 
 // Testimonials
 export { default as UnforgettableCutout } from "./testimonials/unforgettable.svg";
-export { default as Ali } from "./testimonials/hackers/ali.png";
-export { default as Milind } from "./testimonials/hackers/milind.png";
-export { default as Simone } from "./testimonials/hackers/simone.png";
+export { default as Ali } from "./testimonials/hackers/elon.png";
+export { default as Elon } from "./testimonials/hackers/elon.png";
+export { default as Milind } from "./testimonials/hackers/trumppng.png";
+export { default as Trump } from "./testimonials/hackers/trumppng.png";
+export { default as Simone } from "./testimonials/hackers/Modi.png";
+export { default as Modi } from "./testimonials/hackers/Modi.png";
 export { default as OpenQuote } from "./testimonials/open-quote.svg";
 export { default as CloseQuote } from "./testimonials/close-quote.svg";
 export { default as BlocksBackground } from "./testimonials/blocks-background.png";
@@ -152,7 +154,7 @@ export { default as PortalOut4 } from "./leaders/portal/out4.png";
 export { default as PortalOut5 } from "./leaders/portal/out5.png";
 
 export { default as Trapezoid } from "./leaders/Trapezoid.png";
-export { default as LucyGuo } from "./leaders/lucy-guo.png";
+export { default as LucyGuo } from "./leaders/Logan_Kilpatrick.png";
 
 // Sponsors
 export { default as ArrowLink } from "./sponsors/arrow-link.svg";

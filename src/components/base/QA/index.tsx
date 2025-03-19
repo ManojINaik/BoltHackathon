@@ -8,7 +8,7 @@ const QA: React.FC = () => {
     <span>
       <OrganizerTools
         bugnub={{
-          repoName: "hackthenorth.com",
+          repoName: "Bolt.new",
           token: "9RQYZyziWGRIfGFZEkLNhlpskAt9T24D",
         }}
       />

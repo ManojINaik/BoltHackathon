@@ -16,7 +16,7 @@ const Ion: React.FC<IonProps> = ({ train, children, ...rest }) => {
           height={52}
           loading="lazy"
           src={IONS[train]}
-          alt={`Image of a train with windows, with Hack the North ${train} team members inside.`}
+          alt={`Image of a train with windows, with Bolt.new ${train} team members inside.`}
         />
       </IonWrapper>
     </div>

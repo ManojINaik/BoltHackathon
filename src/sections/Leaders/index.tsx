@@ -6,7 +6,7 @@ import { Heading1, Heading2, LargeBodyBold, LargeBodyMedium } from "src/styles";
 import { mediaQueries } from "src/utils";
 import styled from "styled-components";
 
-import { MOBILE_VIEW_WIDTH } from "../Projects";
+const MOBILE_VIEW_WIDTH = 600;
 
 import { leaders } from "./constants";
 import Engineering from "./engineering";
@@ -35,7 +35,7 @@ const Leaders: React.FC = () => {
           </HeadingContainer>
         </HeadingWrapper>
         <SubHeading>
-          Every year, leaders in the tech industry join Hack the North to speak,
+          Every year, leaders in the tech industry join Bolt.new to speak,
           judge, and
           <ConditionalBreak /> mentor hackers. Stay tuned for the list of this
           year&apos;s speakers, coming soon.
@@ -48,14 +48,18 @@ const Leaders: React.FC = () => {
               <TrapezoidImage
                 loading="lazy"
                 src={Trapezoid}
-                alt="lucy guo tab"
+                alt="Logan Kilpatrick tab"
               />
               <SpeakerText>KEYNOTE SPEAKER</SpeakerText>
             </TrapezoidContainer>
             <SpeakerInteriorWrapper>
               <SpeakerInteriorContainer>
                 <ImageContainer>
-                  <LucyGuoImage loading="lazy" src={LucyGuo} alt="lucy guo" />
+                  <LucyGuoImage
+                    loading="lazy"
+                    src={LucyGuo}
+                    alt="Logan Kilpatrick"
+                  />
                 </ImageContainer>
                 <SpeakerTextContainer>
                   <div
@@ -65,21 +69,25 @@ const Leaders: React.FC = () => {
                       gap: "2px",
                     }}
                   >
-                    <Heading2 style={{ fontSize: "30px" }}>Lucy Guo</Heading2>
+                    <Heading2 style={{ fontSize: "30px" }}>
+                      Logan Kilpatrick
+                    </Heading2>
                     <Subtext>Keynote Speaker</Subtext>
                   </div>
                   <BodySpeakerText>
-                    We&apos;re excited to announce that our keynote speaker for
-                    Hack the North 2024 is Lucy Guo! Lucy is the founder of
-                    Passes, a platform that builds tools to help creators
-                    monetize and become entrepreneurs. They&apos;ve recently
-                    raised $40 million to bring this to life and have creators
-                    such as Shaq, Livvy Dunne, Huddy, and more. Before that, she
-                    co-founded Scale AI, a company now valued at $13.8 billion.
-                    Lucy was also featured on Forbes&apos; 30 Under 30 list and
-                    was a Thiel Fellow after studying computer science and HCI
-                    at Carnegie Mellon. We can&apos;t wait for her to share her
-                    amazing journey and insights with us!
+                    We're excited to announce that our keynote speaker for
+                    Bolt.new 2025 is Logan Kilpatrick! Logan is a driving force
+                    in AI innovation at Google AI Studio, where he spearheaded
+                    the launch of Gemini 2.0 Flash, pushing the boundaries of AI
+                    technology. He’s fueling the future of coding with ideas
+                    like massively parallel execution, captivating tech
+                    enthusiasts and creators alike. Before this, he made waves
+                    at OpenAI, contributing to AI breakthroughs that continue to
+                    shape the industry. Logan’s insights have earned him
+                    recognition as a thought leader, amplified by his dynamic
+                    presence in the AI community and collaborations with figures
+                    like Dwarkesh Patel. We can’t wait for him to bring his
+                    electrifying vision and experiences to our stage!
                   </BodySpeakerText>
                 </SpeakerTextContainer>
               </SpeakerInteriorContainer>

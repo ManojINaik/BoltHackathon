@@ -5,19 +5,19 @@ export const content = `
 - We collect anonymized data to improve our services.
 - We clearly inform you of any plans to share personal data and require explicit consent before doing so.
 - We don't track you for advertising (there's no ads on our site anyways).
-- You can request that we delete your data at any time by emailing [hello@hackthenorth.com](mailto:hello@hackthenorth.com).
+- You can request that we delete your data at any time by emailing [hello@Bolt.new](mailto:hello@Bolt.new).
 
 ---
 
 ## Preface
 
-At Hack the North, we care about our privacy and personal data just as much as you do. We, like other Techyon events, are proud to be not-for-profit and respect your rights and privacy as a user. Our goal is simple: to bring together the best speakers, sponsors, and students from across the world for 36 hours to collaborate, create, and bring their ideas to life.
+At Bolt.new, we care about our privacy and personal data just as much as you do. We, like other Techyon events, are proud to be not-for-profit and respect your rights and privacy as a user. Our goal is simple: to bring together the best speakers, sponsors, and students from across the world for 36 hours to collaborate, create, and bring their ideas to life.
 
 
 ## Terminology
 
-- Us/We/Our: The organizing members of Hack the North
-- Our event/The Event: The main Hack the North event hosted in September
+- Us/We/Our: The organizing members of Bolt.new
+- Our event/The Event: The main Bolt.new event hosted in September
 - Participant: Hackers, sponsors, judges, speakers, and volunteers who participate in our event
 
 ## Data we collect
@@ -66,7 +66,7 @@ We use the data we receive from third parties solely for identification purposes
 We collect various data during our event to improve our event and ensure a great experience for everyone. This includes, for example, recording QR code scans for us to a) enforce quotas for limited resources such as food and b) better understand participation and popularity of activities.
 
 ### Cookies
-Hack the North uses cookies to authenticate you across our services. Additionally, our analytics, bug reporting, and DNS providers use cookies to facilitate their services. Please read their privacy policies linked under [Data we collect when you visit our website](#data-we-collect-when-you-visit-our-website) to understand how these individual services may use cookies in the course of your browsing experience.
+Bolt.new uses cookies to authenticate you across our services. Additionally, our analytics, bug reporting, and DNS providers use cookies to facilitate their services. Please read their privacy policies linked under [Data we collect when you visit our website](#data-we-collect-when-you-visit-our-website) to understand how these individual services may use cookies in the course of your browsing experience.
   
 ## Data we share
 
@@ -81,12 +81,12 @@ We may, if required by law, disclose your information to law enforcement officia
 
 ## Data security
 
-At Hack the North we take data security extremely seriously and make use of industry standards like SSL and PBKDF2 password hashing to ensure that your information stays private. We will commit to notifying all affected parties in the unlikely event of a data breach within 72 hours unless otherwise required by law or extenuating circumstances. Our websites are hosted in the United States and Canada on Google Cloud and Amazon AWS servers that comply with rigorous, globally recognized security and data protection standards [[1]](https://aws.amazon.com/compliance/programs/) [[2]](https://cloud.google.com/security/compliance/).     
+At Bolt.new we take data security extremely seriously and make use of industry standards like SSL and PBKDF2 password hashing to ensure that your information stays private. We will commit to notifying all affected parties in the unlikely event of a data breach within 72 hours unless otherwise required by law or extenuating circumstances. Our websites are hosted in the United States and World on Google Cloud and Amazon AWS servers that comply with rigorous, globally recognized security and data protection standards [[1]](https://aws.amazon.com/compliance/programs/) [[2]](https://cloud.google.com/security/compliance/).     
 
 ## Your rights
 
 ### Data ownership
-You own your data. You may at any time, with proof of identity, email us at [hello@hackthenorth.com](mailto:hello@hackthenorth.com) and request that we provide, update, or delete any personal data we have that pertains to you. We will, barring legal requirements or exceptional circumstances, comply with your request within 30 days of receipt. Please note that deleted data may be retained in our backups for up to an additional 60 days, after which they are purged.
+You own your data. You may at any time, with proof of identity, email us at [hello@Bolt.new](mailto:hello@Bolt.new) and request that we provide, update, or delete any personal data we have that pertains to you. We will, barring legal requirements or exceptional circumstances, comply with your request within 30 days of receipt. Please note that deleted data may be retained in our backups for up to an additional 60 days, after which they are purged.
 
 ### Data freedom
 You have several options to limit how much information you share with us:  
@@ -98,8 +98,8 @@ You may choose to not fill out any optional fields in our forms and communicatio
 You may elect to stop receiving marketing and promotional material from us by clicking "unsubscribe" at the bottom of any promotional emails.
 
 **Use a tracking blocker**    
-Hack the North does require cookies to be enabled for our services to work. We do not, however, have individual control over cookies and other tracking activities done by the services outlined in [Data we collect when you visit our website](#data-we-collect-when-you-visit-our-website). You may elect to use a browser extension to block these anonymous analytics activities.
+Bolt.new does require cookies to be enabled for our services to work. We do not, however, have individual control over cookies and other tracking activities done by the services outlined in [Data we collect when you visit our website](#data-we-collect-when-you-visit-our-website). You may elect to use a browser extension to block these anonymous analytics activities.
 
 ## Questions
-We are always looking for feedback on our practices and policies at Hack the North. If you have any questions, concerns, or complaints regarding our practices or policies please contact us at [hello@hackthenorth.com](mailto:hello@hackthenorth.com). 
+We are always looking for feedback on our practices and policies at Bolt.new. If you have any questions, concerns, or complaints regarding our practices or policies please contact us at [hello@Bolt.new](mailto:hello@Bolt.new). 
 `;

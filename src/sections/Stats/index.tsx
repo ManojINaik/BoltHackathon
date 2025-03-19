@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { Cloud3, Cloud4, lastPaper, statsBook } from "src/assets/img";
 import {
   schools,
   workshops,
@@ -11,8 +10,16 @@ import {
   projects,
   Cloud1,
   Cloud2,
+  Cloud3,
+  Cloud4,
+  lastPaper,
 } from "src/assets/img";
-import { ContentWrapper, SectionWrapper } from "src/components/base";
+import { LAPTOP_MODEL_PATH, USE_ANIMATION } from "src/assets/models";
+import {
+  ContentWrapper,
+  SectionWrapper,
+  ThreeModel,
+} from "src/components/base";
 import { SectionId } from "src/constants";
 import { Heading1 } from "src/styles";
 import { theme } from "src/styles";
@@ -21,11 +28,133 @@ import styled, { css, keyframes } from "styled-components";
 
 const MOBILE_VIEW_WIDTH = 630;
 
-const Stats = () => {
+const Stats = (): JSX.Element => {
   const [bookRef, bookInView] = useInView({
     triggerOnce: true,
     threshold: 0.5,
   });
+
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [targetScrollProgress, setTargetScrollProgress] = useState(0);
+  const [laptopRef, laptopInView] = useInView({
+    threshold: 0.1,
+    triggerOnce: false,
+  });
+
+  // Apply smooth scrolling animation effect
+  useEffect(() => {
+    if (!laptopInView) return;
+
+    // Smooth animation frame for scrolling
+    let animationFrameId: number;
+
+    const animateScroll = () => {
+      setScrollProgress((prev) => {
+        // Apply smooth lerp (linear interpolation)
+        const smoothingFactor = 0.08; // Adjust for desired smoothness
+        const newProgress =
+          prev + (targetScrollProgress - prev) * smoothingFactor;
+
+        // Only continue animating if we haven't reached the target
+        const isSettled = Math.abs(newProgress - targetScrollProgress) < 0.001;
+
+        if (!isSettled) {
+          animationFrameId = requestAnimationFrame(animateScroll);
+        }
+
+        return newProgress;
+      });
+    };
+
+    animationFrameId = requestAnimationFrame(animateScroll);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [laptopInView, targetScrollProgress]);
+
+  // Handle scroll event to calculate animation progress between sections
+  useEffect(() => {
+    if (!laptopInView) return;
+
+    const handleScroll = () => {
+      // Get the Stats section and the About section heading
+      const statsSection = document.getElementById(SectionId.STATS);
+      const aboutSection = document.getElementById(SectionId.ABOUT);
+
+      if (!statsSection || !aboutSection) return;
+
+      // Find the "year we had..." heading in Stats section
+      const statsHeading = statsSection.querySelector("h1");
+      // Find the "Welcome to World biggest hackathon" heading in About section
+      const aboutHeading = aboutSection.querySelector("h2");
+
+      if (!statsHeading || !aboutHeading) return;
+
+      // Get the positions
+      const statsHeadingRect = statsHeading.getBoundingClientRect();
+      const aboutHeadingRect = aboutHeading.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Calculate the total scroll distance between the two elements
+      const totalDistance = aboutHeadingRect.top - statsHeadingRect.top;
+
+      // Calculate how far we are in the journey (from 0 to 1)
+      let progress = 0;
+
+      // If stats heading is above viewport and about heading is below
+      if (statsHeadingRect.top < 0 && aboutHeadingRect.top > 0) {
+        // Calculate progress based on how far we've scrolled between the two
+        progress = Math.abs(statsHeadingRect.top) / totalDistance;
+      }
+      // If both are on screen
+      else if (
+        statsHeadingRect.top >= 0 &&
+        aboutHeadingRect.top <= viewportHeight
+      ) {
+        // Calculate based on relative positions
+        progress = (viewportHeight - statsHeadingRect.top) / totalDistance;
+      }
+      // If stats heading is still below viewport
+      else if (statsHeadingRect.top > 0) {
+        progress = 0;
+      }
+      // If about heading is already above viewport
+      else if (aboutHeadingRect.top < 0) {
+        progress = 1;
+      }
+
+      // Clamp progress between 0 and 1
+      progress = Math.max(0, Math.min(1, progress));
+
+      console.log(
+        `Target animation progress: ${progress.toFixed(
+          2
+        )}, Current: ${scrollProgress.toFixed(2)}`
+      );
+
+      // Update the target progress (actual scrollProgress will be updated by the animation frame)
+      setTargetScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial calculation
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [laptopInView, scrollProgress]);
+
+  // Force animation playback whenever laptopInView changes
+  useEffect(() => {
+    if (laptopInView) {
+      console.log("Laptop is now in view - animation should start");
+      // Force scroll event to recalculate position when laptop comes into view
+      window.dispatchEvent(new Event("scroll"));
+    } else {
+      console.log("Laptop is out of view - animation should stop");
+    }
+  }, [laptopInView]);
 
   return (
     <SectionWrapper id={SectionId.STATS}>
@@ -92,14 +221,24 @@ const Stats = () => {
               aria-label="last"
               loading="lazy"
             />
-            <StatsHeading>year we had...</StatsHeading>
+            <StatsHeading>year we will have...</StatsHeading>
           </HeadingContainer>
-          <Book
-            src={statsBook}
-            alt="sparkling book"
-            aria-label="sparkling book"
-            loading="lazy"
-          />
+          <LaptopModelContainer ref={laptopRef}>
+            <ThreeModel
+              modelPath={LAPTOP_MODEL_PATH}
+              height="100%"
+              position={[0, -0.4, 0]}
+              rotation={[0.15, 0, 0]}
+              scale={10.0}
+              autoRotate={true}
+              animationName={
+                USE_ANIMATION && laptopInView ? "Animation" : undefined
+              }
+              animationStartTime={0.0}
+              animationEndTime={10.0}
+              scrollProgress={scrollProgress}
+            />
+          </LaptopModelContainer>
         </StatSectionWrapper>
       </ContentWrapper>
     </SectionWrapper>
@@ -588,6 +727,7 @@ const MentorsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 `;
 
 const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
+  width: 15%;
   ${({ inView }) =>
     inView &&
     css`
@@ -597,7 +737,7 @@ const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
     `}
 
   ${mediaQueries.large} {
-    width: 169px;
+    width: 135px;
     ${({ inView }) =>
       inView &&
       css`
@@ -608,7 +748,7 @@ const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 
   ${mediaQueries.medium} {
-    width: 171px;
+    width: 137px;
     ${({ inView }) =>
       inView &&
       css`
@@ -619,7 +759,7 @@ const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
-    width: 25%;
+    width: 20%;
     ${({ inView }) =>
       inView &&
       css`
@@ -630,7 +770,7 @@ const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 
   ${mediaQueries.largeMobile} {
-    width: 25%;
+    width: 20%;
     ${({ inView }) =>
       inView &&
       css`
@@ -642,6 +782,7 @@ const WorkshopsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 `;
 
 const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
+  // width: 50%;
   ${({ inView }) =>
     inView &&
     css`
@@ -651,7 +792,7 @@ const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
     `}
 
   ${mediaQueries.large} {
-    width: 302.4px;
+    width: 240px;
     ${({ inView }) =>
       inView &&
       css`
@@ -662,7 +803,7 @@ const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 
   ${mediaQueries.medium} {
-    width: 306px;
+    width: 245px;
     ${({ inView }) =>
       inView &&
       css`
@@ -673,7 +814,7 @@ const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
-    width: 45%;
+    width: 35%;
     ${({ inView }) =>
       inView &&
       css`
@@ -684,7 +825,7 @@ const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 
   ${mediaQueries.largeMobile} {
-    width: 45%;
+    width: 35%;
     ${({ inView }) =>
       inView &&
       css`
@@ -696,6 +837,7 @@ const SchoolsBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
 `;
 
 const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
+  width: 20%;
   ${({ inView }) =>
     inView &&
     css`
@@ -705,7 +847,7 @@ const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
     `}
 
   ${mediaQueries.large} {
-    width: 239px;
+    width: 190px;
     ${({ inView }) =>
       inView &&
       css`
@@ -716,7 +858,7 @@ const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 
   ${mediaQueries.medium} {
-    width: 241px;
+    width: 192px;
     ${({ inView }) =>
       inView &&
       css`
@@ -727,7 +869,7 @@ const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
-    width: 35%;
+    width: 28%;
     ${({ inView }) =>
       inView &&
       css`
@@ -738,7 +880,7 @@ const TravelBlock = styled(BlockDefaultStyles)<{ inView?: boolean }>`
   }
 
   ${mediaQueries.largeMobile} {
-    width: 35%;
+    width: 28%;
     ${({ inView }) =>
       inView &&
       css`
@@ -920,28 +1062,37 @@ const StatsPaper = styled.img`
   width: auto;
   height: auto;
   margin-top: 20px;
+  max-width: 100px;
+
+  ${mediaQueries.large} {
+    max-width: 100px;
+  }
 
   ${mediaQueries.largeMobile} {
-    width: 80px;
+    width: 70px;
     margin-top: 10px;
   }
 `;
 
-const Book = styled.img`
+const LaptopModelContainer = styled.div`
   width: 90%;
+  height: 500px;
   bottom: 0;
   position: absolute;
 
   ${mediaQueries.large} {
-    width: 1100px;
+    width: 800px;
+    height: 500px;
   }
 
   ${mediaQueries.medium} {
-    width: 1200px;
+    width: 800px;
+    height: 500px;
   }
 
   ${mediaQueries.custom(MOBILE_VIEW_WIDTH)} {
-    width: 150%;
+    width: 100%;
+    height: 350px;
   }
 `;
 

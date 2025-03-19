@@ -14,7 +14,7 @@ const OrganizerAppsFooter: React.FC = () => {
           <BottomText href="/privacy">Privacy Policy</BottomText>
         </MinorBottomContainer>
         <div>
-          <CopyrightText>Copyright © Techyon, 2025</CopyrightText>
+          <CopyrightText>Copyright © Bolt, 2025</CopyrightText>
         </div>
       </BottomTextContainer>
     </OuterContainer>

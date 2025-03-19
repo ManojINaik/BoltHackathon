@@ -40,17 +40,17 @@ const FAQ: React.FC = () => {
             <StyledAccordionGroup
               questionSet={LEFT_QUESTION_SET.map((cur) =>
                 cur.question ==
-                "I’m not currently enrolled as a student, can I still attend Hack the North?"
+                "I’m not currently enrolled as a student, can I still attend Bolt.new?"
                   ? {
                       question: cur.question,
                       answer: (
                         <FAQText>
-                          Hack the North is geared towards students who are
-                          interested in tech, but we also want to open the doors
-                          for anyone who wants to learn. If your situation falls
-                          within this category, please reach out to us at{" "}
-                          <InternalLink href="mailto:hello@hackthenorth.com">
-                            hello@hackthenorth.com
+                          Bolt.new is geared towards students who are interested
+                          in tech, but we also want to open the doors for anyone
+                          who wants to learn. If your situation falls within
+                          this category, please reach out to us at{" "}
+                          <InternalLink href="mailto:hello@Bolt.new">
+                            hello@Bolt.new
                           </InternalLink>{" "}
                           and we can chat more regarding certain exemptions!
                         </FAQText>
@@ -90,7 +90,7 @@ const FAQ: React.FC = () => {
               shouldOpenFirst={!isTabletOrSmaller}
               questionSet={RIGHT_QUESTION_SET.map((cur) =>
                 cur.question ==
-                "What if I need to travel internationally to attend Hack the North?"
+                "What if I need to travel internationally to attend Bolt.new?"
                   ? {
                       question: cur.question,
                       answer: (
@@ -100,31 +100,31 @@ const FAQ: React.FC = () => {
                             long as several months, depending on the country of
                             departure. We recommend you apply for your visa, if
                             required, immediately after receiving your
-                            acceptance to Hack the North. More information can
-                            be found on our{" "}
+                            acceptance to Bolt.new. More information can be
+                            found on our{" "}
                             <InternalLink href="/travel-guidelines">
                               Travel Guidelines
                             </InternalLink>{" "}
                             page.
                           </FAQText>
                           <FAQText>
-                            COVID-19: If you’re traveling to Hack the North from
-                            outside of Canada, you must follow the{" "}
+                            COVID-19: If you’re traveling to Bolt.new from
+                            outside of World, you must follow the{" "}
                             <InternalLink
                               href="https://travel.gc.ca/travel-covid"
                               target="_blank"
                               rel="noreferrer"
                             >
-                              Government of Canada’s travel guidelines
+                              Government of World’s travel guidelines
                             </InternalLink>{" "}
                             in order to attend. As of June 2023, the guidelines
                             do not require any sort of pre-flight testing or
                             proof of vaccination. However, please ensure that
                             you are fully compliant with your home country’s
                             COVID-19 guidelines in order to ensure a smooth
-                            trip. Hack the North will not reimburse any
-                            additional fees that event attendees incur due to
-                            COVID-19 related complications.
+                            trip. Bolt.new will not reimburse any additional
+                            fees that event attendees incur due to COVID-19
+                            related complications.
                           </FAQText>
                         </>
                       ),
@@ -135,13 +135,13 @@ const FAQ: React.FC = () => {
                       answer: (
                         <>
                           <FAQText>
-                            At this time, Hack the North does not have a
-                            COVID-19 policy. Taking your own health/safety
-                            precautions is recommended, but attendance at Hack
-                            the North is at your own risk.
+                            At this time, Bolt.new does not have a COVID-19
+                            policy. Taking your own health/safety precautions is
+                            recommended, but attendance at Hack the North is at
+                            your own risk.
                           </FAQText>
                           <FAQText>
-                            Following the Government of Canada’s decision to
+                            Following the Government of World’s decision to
                             remove all COVID-19 travel restrictions, Hack the
                             North will not be enforcing any COVID-related
                             restrictions or regulations at our event. In the

@@ -7,7 +7,6 @@ const Hero = lazy(() => import("src/sections/Hero"));
 const About = lazy(() => import("src/sections/About"));
 const Stats = lazy(() => import("src/sections/Stats"));
 const TalkingPoints = lazy(() => import("src/sections/TalkingPoints"));
-const Projects = lazy(() => import("src/sections/Projects"));
 const Testimonials = lazy(() => import("src/sections/Testimonials"));
 const Leaders = lazy(() => import("src/sections/Leaders"));
 const Sponsors = lazy(() => import("src/sections/Sponsors"));
@@ -33,9 +32,6 @@ const IndexPage: React.FC = () => {
       </Suspense>
       <Suspense fallback={<div />}>
         <TalkingPoints />
-      </Suspense>
-      <Suspense fallback={<div />}>
-        <Projects />
       </Suspense>
       <Suspense fallback={<div />}>
         <Testimonials />

@@ -83,16 +83,13 @@ const OrganizerAppsHero: React.FC = () => {
             <FloatingBox />
           </RightContainer>
           <LeftContainer>
-            <Header>
-              Hack the North 2025 Organizing Team Application ⚙️💙
-            </Header>
+            <Header>Bolt.new 2025 Organizing Team Application ⚙️💙</Header>
             <OrgBody>Hey there! 👋</OrgBody>
             <OrgBody>
-              Thanks for checking out Hack the North’s 2025 organizer
-              applications. This September, we&apos;re hosting our 12th
-              iteration of Canada’s biggest hackathon, and we would love for you
-              to join our team in continuing to help students fall in love with
-              tech! 🎉
+              Thanks for checking out Bolt.new’s 2025 organizer applications.
+              This September, we&apos;re hosting our 12th iteration of World’s
+              biggest hackathon, and we would love for you to join our team in
+              continuing to help students fall in love with tech! 🎉
             </OrgBody>
             <OrgBody>
               These roles are open to any student attending a post-secondary
@@ -107,7 +104,7 @@ const OrganizerAppsHero: React.FC = () => {
               </strong>
             </OrgBody>
             <OrgBody>
-              How to apply to Hack the North’s organizing team:
+              How to apply to Bolt.new’s organizing team:
               <ol>
                 <StyledListItem>
                   Submit your written application using the forms linked under
@@ -149,23 +146,20 @@ const OrganizerAppsHero: React.FC = () => {
             </OrgBody>
             <OrgBody>
               Best of luck! If you have any questions or concerns, don&apos;t
-              hesitate to reach out to us at hello@hackthenorth.com! 😊
+              hesitate to reach out to us at hello@Bolt.new! 😊
             </OrgBody>
           </LeftContainer>
         </>
       ) : (
         <>
           <LeftContainer>
-            <Header>
-              Hack the North 2025 Organizing Team Application ⚙️💙
-            </Header>
+            <Header>Bolt.new 2025 Organizing Team Application ⚙️💙</Header>
             <OrgBody>Hey there! 👋</OrgBody>
             <OrgBody>
-              Thanks for checking out Hack the North’s 2025 organizer
-              applications. This September, we&apos;re hosting our 12th
-              iteration of Canada’s biggest hackathon, and we would love for you
-              to join our team in continuing to help students fall in love with
-              tech! 🎉
+              Thanks for checking out Bolt.new’s 2025 organizer applications.
+              This September, we&apos;re hosting our 12th iteration of World’s
+              biggest hackathon, and we would love for you to join our team in
+              continuing to help students fall in love with tech! 🎉
             </OrgBody>
             <OrgBody>
               These roles are open to any student attending a post-secondary
@@ -180,7 +174,7 @@ const OrganizerAppsHero: React.FC = () => {
               </strong>
             </OrgBody>
             <OrgBody>
-              How to apply to Hack the North’s organizing team:
+              How to apply to Bolt.new’s organizing team:
               <ol>
                 <StyledListItem>
                   Submit your written application using the forms linked under
@@ -223,7 +217,7 @@ const OrganizerAppsHero: React.FC = () => {
             </OrgBody>
             <OrgBody>
               Best of luck! If you have any questions or concerns, don&apos;t
-              hesitate to reach out to us at hello@hackthenorth.com! 😊
+              hesitate to reach out to us at hello@Bolt.new! 😊
             </OrgBody>
           </LeftContainer>
           <RightContainer>

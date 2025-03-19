@@ -82,18 +82,6 @@ const Engineering: React.FC = () => {
             src={WaterlooEngineering}
             alt="Waterloo Engineering"
           />
-          <BodyText>
-            Our partner since 2014, Waterloo Engineering continues to support
-            Hack the North to build a creative, diverse, and unique experience
-            for hackers. The University of Waterloo is home to Canada&apos;s
-            largest engineering school — a pipeline for engineering talent for
-            the world&apos;s leading companies.
-          </BodyText>
-          <BodyText>
-            Ranked among the top 50 engineering schools in the world, the
-            school&apos;s reputation for excellence is built on the foundation
-            of co-op education and a bold history of innovation.
-          </BodyText>
         </UWEngineeringContent>
         <GooseContainer className="outContainer">
           <Goose
@@ -139,18 +127,6 @@ const Engineering: React.FC = () => {
             src={WaterlooEngineering}
             alt="Waterloo Engineering"
           />
-          <BodyText>
-            Our partner since 2014, Waterloo Engineering continues to support
-            Hack the North to build a creative, diverse, and unique experience
-            for hackers. The University of Waterloo is home to Canada&apos;s
-            largest engineering school — a pipeline for engineering talent for
-            the world&apos;s leading companies.
-          </BodyText>
-          <BodyText>
-            Ranked among the top 50 engineering schools in the world, the
-            school&apos;s reputation for excellence is built on the foundation
-            of co-op education and a bold history of innovation.
-          </BodyText>
         </UWEngineeringContent>
       </UWEngineeringContainer>
     </ContentWrapper>

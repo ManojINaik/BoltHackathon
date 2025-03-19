@@ -83,7 +83,7 @@ const Projects: React.FC = () => {
               create something amazing!{" "}
               {windowWidth && windowWidth > 1024 && <br />}
               Check out some of the incredible projects that have come to life
-              at Hack the North:
+              at Bolt.new:
             </BodyText>
           </BodyTextWrapper>
         </HeadingContainer>

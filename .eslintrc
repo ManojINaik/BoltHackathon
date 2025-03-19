@@ -57,7 +57,18 @@
     "react/no-unknown-property": [
       "error",
       {
-        "ignore": ["css"]
+        "ignore": [
+          "css",
+          "position",
+          "rotation",
+          "object",
+          "intensity",
+          "angle",
+          "penumbra",
+          "makeDefault",
+          "enableZoom",
+          "enablePan"
+        ]
       }
     ]
   },

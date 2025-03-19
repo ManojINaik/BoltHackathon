@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ENDPOINT = "https://staging-api.hackthenorth.com/v3/proxy";
+const ENDPOINT = "https://staging-api.Bolt.new/v3/proxy";
 const GITHUB_BASE_URL = "https://api.github.com/repos/hackathon/bugnub-images";
 
 const SUCCESS_CODE = 201;
@@ -24,8 +24,8 @@ const uploadImage = async (issueTitle: string, image: File) => {
     {
       message: `[AUTOMATED] Upload image for issue "${issueTitle}"`,
       committer: {
-        name: "Hack the North Bot",
-        email: "platform+bot@hackthenorth.com",
+        name: "Bolt.new Bot",
+        email: "platform+bot@Bolt.new",
       },
       content: (await toBase64(image)) || {},
     },

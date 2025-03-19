@@ -45,9 +45,14 @@ const Testimonials: React.FC = () => {
         </HeadingContainer>
         <SummaryTextContainer>
           <SummaryText>
-            Since 2014, Hack the North has empowered students of all levels to
-            take their ideas to the next level by fostering a community of
-            learning, mentorship, and fun.
+            Since its inception, Bolt.new has been dedicated to empowering
+            students of all levels by providing a dynamic platform that nurtures
+            creativity, innovation, and growth. Built by StackBlitz, Bolt.new is
+            a cutting-edge, browser-based development environment designed to
+            help users—particularly students and developers—bring their ideas to
+            life with ease and efficiency. It fosters a vibrant community
+            centered around learning, mentorship, and collaboration, making it a
+            powerful tool for both beginners and seasoned coders.
           </SummaryText>
         </SummaryTextContainer>
         <TestimonialCarousel />

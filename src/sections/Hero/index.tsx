@@ -25,10 +25,10 @@ import {
   Block_7,
   Block_8,
   Block_9,
+  BoltLogo,
   Bubble1,
   Bubble2,
   Bubble3,
-  MLHLogo,
   MainTitle,
 } from "src/assets/img";
 import { Button, ContentWrapper, SectionWrapper } from "src/components/base";
@@ -184,24 +184,24 @@ const Hero: React.FC = () => {
           <StyledMainTitle src={MainTitle} alt="main-title" />
           <StyledCaptionContainer>
             <StyledTitleCaption>
-              September 13-15, 2024 • In-person event
+              September 13-15, 2025 • In-person event
             </StyledTitleCaption>
-            <StyledMLHContainer>
+            <StyledBoltContainer>
               <StyledTitleCaption> • </StyledTitleCaption>
-              <StyledMLHLogo src={MLHLogo} alt="MLH Logo" />
+              <StyledBoltLogo src={BoltLogo} alt="Bolt Logo" />
               <StyledTitleCaption>Official Member</StyledTitleCaption>
-            </StyledMLHContainer>
+            </StyledBoltContainer>
           </StyledCaptionContainer>
         </HeadingContainer>
         <SubHeadingContainer>
           <OrganizerApplicationsClosedContainer>
             <Text>
-              Thank you for your interest in joining Hack the North 2025!{" "}
+              Thank you for your interest in joining Bolt.new 2025!{" "}
               <b>Organizer applications are now closed.</b>
             </Text>
           </OrganizerApplicationsClosedContainer>
           <a
-            href="mailto:sponsorship@hackthenorth.com"
+            href="mailto:sponsorship@Bolt.new"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => Fathom.trackEvent("Sign up: Clicked Email Contact")}
@@ -497,7 +497,7 @@ const StyledTitleCaption = styled(LargeBodyBold)`
   color: ${({ theme }) => theme.colors.secondary.navy};
 `;
 
-const StyledMLHContainer = styled.div`
+const StyledBoltContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -505,7 +505,7 @@ const StyledMLHContainer = styled.div`
   margin-left: 4px;
 `;
 
-const StyledMLHLogo = styled.img`
+const StyledBoltLogo = styled.img`
   width: 59px;
   height: 25px;
   margin: 0 8px;
@@ -525,22 +525,22 @@ const StyledContentWrapper = styled(ContentWrapper)`
 `;
 
 const StyledMainTitle = styled.img`
-  max-width: 844px;
-  max-height: 170px;
+  max-width: 1025px;
+  max-height: 210px;
   margin-top: 192px;
   margin-bottom: 16px;
   ${mediaQueries.tablet} {
-    width: 500px;
+    width: 550px;
     height: auto;
   }
 
   ${mediaQueries.largeMobile} {
-    width: 336px;
+    width: 370px;
     height: auto;
   }
 
   ${mediaQueries.smallMobile} {
-    width: 250px;
+    width: 275px;
     height: auto;
   }
 `;

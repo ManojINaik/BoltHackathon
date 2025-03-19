@@ -3,8 +3,8 @@ import { SectionId } from "src/constants/section";
 
 export const NAVBAR_HEIGHT_PX = 80;
 
-export const WEBSITE2023URL = "https://2023.hackthenorth.com";
-export const JOINURL = "https://hackthenorth.com/join";
+export const WEBSITE2023URL = "https://2023.Bolt.new";
+export const JOINURL = "https://Bolt.new/join";
 
 export interface NavBarProps {
   notMainPage?: boolean;
@@ -13,7 +13,6 @@ export interface NavBarProps {
 
 export const SECTIONS = {
   [SectionId.ABOUT]: "About",
-  [SectionId.PROJECTS]: "Projects",
   [SectionId.TESTIMONIALS]: "Stories",
   [SectionId.SPONSORS]: "Sponsors",
   [SectionId.FAQ]: "FAQ",
