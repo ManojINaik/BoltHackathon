@@ -1,7 +1,6 @@
 import {
   OrbitControls,
   PerspectiveCamera,
-  Environment,
 } from "drei";
 import { Canvas, useFrame, useLoader } from "react-three-fiber";
 import React, { useRef, useEffect } from "react";
@@ -422,13 +421,9 @@ const ThreeModel = ({
   return (
     <ModelContainer className={className} style={{ width, height }}>
       <Canvas
-        shadows
-        dpr={[1, 2]}
         gl={{
           antialias: true,
           alpha: true,
-          physicallyCorrectLights: true,
-          outputEncoding: THREE.sRGBEncoding,
         }}
       >
         <ambientLight intensity={0.9} />
@@ -449,7 +444,7 @@ const ThreeModel = ({
         />
         <pointLight position={[0, -10, 0]} intensity={0.6} />
         <hemisphereLight intensity={0.7} />
-        <PerspectiveCamera makeDefault position={[0, 0, 6]} fov={45} />
+        <PerspectiveCamera position={[0, 0, 6]} fov={45} />
         <Suspense fallback={null}>
           <Model
             modelPath={modelPath}
@@ -462,9 +457,8 @@ const ThreeModel = ({
             animationEndTime={animationEndTime}
             scrollProgress={scrollProgress}
           />
-          <Environment preset="studio" background={false} />
         </Suspense>
-        <OrbitControls enableZoom={false} enablePan={false} />
+        <OrbitControls />
       </Canvas>
     </ModelContainer>
   );
