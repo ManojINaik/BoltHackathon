@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, Suspense } from "react";
+import { Canvas, useFrame, useLoader } from "react-three-fiber";
 import styled from "styled-components";
 import * as THREE from "three";
 import { AnimationMixer, AnimationClip, LoopRepeat } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { Canvas, useFrame, useLoader } from "react-three-fiber";
 
 interface ModelProps {
   modelPath: string;

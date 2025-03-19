@@ -1,5 +1,5 @@
 [build]
-  command = "npm install --legacy-peer-deps --no-fund --no-audit --force && npm run build:unix"
+  command = "npm install --legacy-peer-deps --no-fund --no-audit --force && CI=false npm run build:unix"
   publish = "build"
 
 [context.production]
