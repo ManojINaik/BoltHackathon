@@ -33,7 +33,7 @@ export const SOCIALS: Record<SocialPlatforms, TSocialInfo> = {
   },
   [SocialPlatforms.LINKEDIN]: {
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/hack-the-north",
+    link: "https://www.linkedin.com/company/Boltnew",
     fathomEventName: "Social: LinkedIn icon clicked",
   },
   [SocialPlatforms.TIKTOK]: {
