@@ -124,11 +124,20 @@ const Stats = (): JSX.Element => {
         progress = 1;
       }
 
+      // IMPORTANT: Use direct progress value (no inversion)
+      // This makes the laptop closed when it first appears (progress = 0)
+      // and open as we scroll down (progress = 1)
+      const originalProgress = progress;
+
+      // No inversion needed - using progress directly
+
       // Clamp progress between 0 and 1
       progress = Math.max(0, Math.min(1, progress));
 
       console.log(
-        `Target animation progress: ${progress.toFixed(
+        `Laptop animation progress: ${progress.toFixed(
+          2
+        )} (original scroll: ${originalProgress.toFixed(
           2
         )}, Current: ${scrollProgress.toFixed(2)}`
       );
@@ -235,7 +244,7 @@ const Stats = (): JSX.Element => {
                 USE_ANIMATION && laptopInView ? "Animation" : undefined
               }
               animationStartTime={0.0}
-              animationEndTime={10.0}
+              animationEndTime={3.0}
               scrollProgress={scrollProgress}
             />
           </LaptopModelContainer>

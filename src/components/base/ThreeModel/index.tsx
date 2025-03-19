@@ -278,8 +278,8 @@ const Model = ({
         actionRef.current = mixerRef.current.clipAction(clip);
         actionRef.current.clampWhenFinished = true;
         actionRef.current.setLoop(LoopRepeat, Infinity);
-        // Use a faster timeScale to make the animation more noticeable
-        actionRef.current.timeScale = 2.0;
+        // Use a moderate timeScale for smoother animation
+        actionRef.current.timeScale = 1.0;
         actionRef.current.reset().play();
         console.log("Animation started:", clip.name);
 
@@ -354,7 +354,9 @@ const Model = ({
       // Apply smooth transition to the animation time
       const currentTime = mixerRef.current.time;
       const targetTime = timeRef.current;
-      const lerpFactor = 0.05; // Lower for smoother transitions
+
+      // Reduced smoothing factor for slower, more gentle transitions
+      const lerpFactor = 0.04; // Reduced for slower, smoother transitions
 
       // Calculate the new time with smoothing
       const newTime = currentTime + (targetTime - currentTime) * lerpFactor;
