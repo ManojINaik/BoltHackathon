@@ -84,28 +84,6 @@ const MobileMenu: React.FC<TMobileMenuProps> = ({
               }}
             >
               <a
-                key={Object.keys(SECTIONS).length}
-                href={WEBSITE2023URL}
-                onClick={() => toggleIsOpen()} // menu should close after section is clicked
-                tabIndex={isHidden ? -1 : 0}
-                aria-hidden={isHidden ? "true" : undefined}
-              >
-                <StyledBodyBold>2023</StyledBodyBold>
-              </a>
-            </ListItem>
-          ) : null}
-          {!notMainPage ? (
-            <ListItem
-              key={Object.keys(SECTIONS).length}
-              variants={mobileItemVariants}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                pointerEvents: isOpen ? "auto" : "none",
-                userSelect: isOpen ? "auto" : "none",
-              }}
-            >
-              <a
                 key={Object.keys(SECTIONS).length + 1}
                 href={JOINURL}
                 onClick={() => toggleIsOpen()} // menu should close after section is clicked

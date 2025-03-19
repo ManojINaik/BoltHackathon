@@ -58,13 +58,6 @@ const Menu: React.FC<NavBarProps> = ({ notMainPage, colour }) => {
             </div>
           );
         })}
-      {!notMainPage ? (
-        <div style={websiteSectionStyles}>
-          <StyledLink to={WEBSITE2023URL}>
-            <BodyBold>2023</BodyBold>
-          </StyledLink>
-        </div>
-      ) : null}
       {Object.entries(SOCIALS).map(([id, { icon, link, fathomEventName }]) => (
         <div style={{ alignSelf: "center" }} key={id}>
           <a
