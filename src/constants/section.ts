@@ -8,6 +8,5 @@ export enum SectionId {
   TESTIMONIALS = "testimonials",
   LEADERS = "leaders",
   SPONSORS = "sponsors",
-  FAQ = "faq",
   FOOTER = "footer",
 }

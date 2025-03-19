@@ -93,7 +93,7 @@ const OrganizerAppsHero: React.FC = () => {
             </OrgBody>
             <OrgBody>
               These roles are open to any student attending a post-secondary
-              institution in Waterloo, and who will be located in Waterloo
+              institution in US, and who will be located in US
               during at least one of the Winter (January - April) or Spring (May
               - August) terms this year.
             </OrgBody>
@@ -161,12 +161,7 @@ const OrganizerAppsHero: React.FC = () => {
               biggest hackathon, and we would love for you to join our team in
               continuing to help students fall in love with tech! 🎉
             </OrgBody>
-            <OrgBody>
-              These roles are open to any student attending a post-secondary
-              institution in Waterloo, and who will be located in Waterloo
-              during at least one of the Winter (January - April) or Spring (May
-              - August) terms this year.
-            </OrgBody>
+            
             <OrgBody>
               <strong>
                 Your program, age, gender, or other personal factors will{" "}

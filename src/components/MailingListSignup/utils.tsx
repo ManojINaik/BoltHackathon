@@ -41,7 +41,7 @@ export const signupRequest = async (email: string) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      query: `mutation { addToMailingList(email: "${email}" event_slug: "hackthenorth2025") { email alreadySignup } }`,
+      query: `mutation { addToMailingList(email: "${email}" event_slug: "Bolt.new2025") { email alreadySignup } }`,
     }),
   });
 

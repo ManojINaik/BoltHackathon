@@ -15,7 +15,6 @@ export const SECTIONS = {
   [SectionId.ABOUT]: "About",
   [SectionId.TESTIMONIALS]: "Stories",
   [SectionId.SPONSORS]: "Sponsors",
-  [SectionId.FAQ]: "FAQ",
 };
 
 export const mobileBackgroundVariants: Variants = {

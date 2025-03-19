@@ -18,17 +18,17 @@ type TSocialInfo = {
 export const SOCIALS: Record<SocialPlatforms, TSocialInfo> = {
   [SocialPlatforms.INSTA]: {
     icon: "instagram",
-    link: "https://www.instagram.com/hackthenorth",
+    link: "https://www.instagram.com/Bolt.new",
     fathomEventName: "Social: Instagram icon clicked",
   },
   [SocialPlatforms.X]: {
     icon: "x",
-    link: "https://www.x.com/hackthenorth",
+    link: "https://www.x.com/Bolt.new",
     fathomEventName: "Social: X icon clicked",
   },
   [SocialPlatforms.FACEBOOK]: {
     icon: "facebook",
-    link: "https://www.facebook.com/hackthenorth/",
+    link: "https://www.facebook.com/Bolt.new/",
     fathomEventName: "Social: Facebook icon clicked",
   },
   [SocialPlatforms.LINKEDIN]: {
@@ -38,12 +38,12 @@ export const SOCIALS: Record<SocialPlatforms, TSocialInfo> = {
   },
   [SocialPlatforms.TIKTOK]: {
     icon: "tiktok",
-    link: "https://www.tiktok.com/@hackthenorth",
+    link: "https://www.tiktok.com/@Bolt.new",
     fathomEventName: "Social: TikTok icon clicked",
   },
   [SocialPlatforms.MEDIUM]: {
     icon: "medium",
-    link: "https://hackthenorth.medium.com/",
+    link: "https://Bolt.new.medium.com/",
     fathomEventName: "Social: Medium icon clicked",
   },
 };
