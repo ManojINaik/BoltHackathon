@@ -2,6 +2,10 @@
   "name": "Bolt.new",
   "version": "2022.0.24",
   "private": true,
+  "engines": {
+    "node": "16.20.0",
+    "npm": "8.x"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "set GENERATE_SOURCEMAP=false && react-scripts build",
@@ -82,8 +86,10 @@
     "graceful-fs": "^4.2.11"
   },
   "resolutions": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "three": "0.128.0",
+    "@types/three": "0.128.0"
   },
   "browserslist": {
     "production": [
