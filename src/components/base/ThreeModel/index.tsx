@@ -2,8 +2,8 @@ import {
   OrbitControls,
   PerspectiveCamera,
   Environment,
-} from "@react-three/drei";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+} from "drei";
+import { Canvas, useFrame, useLoader } from "react-three-fiber";
 import React, { useRef, useEffect } from "react";
 import { Suspense } from "react";
 import styled from "styled-components";
