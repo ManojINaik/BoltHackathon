@@ -63,7 +63,7 @@ const Model = ({
           console.log("✅ Bolt_new.png loaded successfully");
 
           // Configure the texture
-          const angleInRadians = 178.9977 * (Math.PI / 180);
+          const angleInRadians = 0; // Reset rotation to fix upside down issue
           texture.rotation = angleInRadians;
           texture.center.set(0.5, 0.5); // Set center point for rotation
           texture.wrapS = THREE.RepeatWrapping;
@@ -83,6 +83,28 @@ const Model = ({
         console.log("🔍 Searching for material.002 in the model...");
         let materialFound = false;
 
+        // Log all materials for debugging
+        console.log("All materials in the model:");
+        scene.traverse((object) => {
+          if (object instanceof THREE.Mesh) {
+            if (Array.isArray(object.material)) {
+              object.material.forEach((mat, idx) => {
+                console.log(
+                  `Mesh ${object.name}, Material[${idx}]: ${
+                    mat.name || "unnamed"
+                  }`
+                );
+              });
+            } else if (object.material) {
+              console.log(
+                `Mesh ${object.name}, Material: ${
+                  object.material.name || "unnamed"
+                }`
+              );
+            }
+          }
+        });
+
         // DIRECT APPROACH: Apply to any material named material.002 or containing "Base color"
         scene.traverse((object) => {
           if (object instanceof THREE.Mesh) {
@@ -95,7 +117,9 @@ const Model = ({
 
                 // Check if this is the target material
                 if (
+                  mat.name === "Material.002" ||
                   mat.name === "material.002" ||
+                  mat.name.includes("Material.002") ||
                   mat.name.includes("material.002") ||
                   mat.name.toLowerCase().includes("base") ||
                   mat.name.toLowerCase().includes("color") ||
@@ -120,7 +144,9 @@ const Model = ({
 
               // Check if this is the target material
               if (
+                object.material.name === "Material.002" ||
                 object.material.name === "material.002" ||
+                object.material.name.includes("Material.002") ||
                 object.material.name.includes("material.002") ||
                 object.material.name.toLowerCase().includes("base") ||
                 object.material.name.toLowerCase().includes("color") ||
@@ -177,23 +203,6 @@ const Model = ({
         } else {
           console.log("✅ Successfully applied texture to material.002!");
         }
-      };
-
-      // Helper function to get all materials from the scene
-      const getAllMaterials = (): THREE.Material[] => {
-        const materials: THREE.Material[] = [];
-
-        scene.traverse((object) => {
-          if (object instanceof THREE.Mesh) {
-            if (Array.isArray(object.material)) {
-              object.material.forEach((mat) => materials.push(mat));
-            } else {
-              materials.push(object.material);
-            }
-          }
-        });
-
-        return materials;
       };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
