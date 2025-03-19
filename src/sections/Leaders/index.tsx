@@ -75,18 +75,18 @@ const Leaders: React.FC = () => {
                     <Subtext>Keynote Speaker</Subtext>
                   </div>
                   <BodySpeakerText>
-                    We're excited to announce that our keynote speaker for
+                    We&apos;re excited to announce that our keynote speaker for
                     Bolt.new 2025 is Logan Kilpatrick! Logan is a driving force
                     in AI innovation at Google AI Studio, where he spearheaded
                     the launch of Gemini 2.0 Flash, pushing the boundaries of AI
-                    technology. He’s fueling the future of coding with ideas
-                    like massively parallel execution, captivating tech
+                    technology. He&apos;s fueling the future of coding with
+                    ideas like massively parallel execution, captivating tech
                     enthusiasts and creators alike. Before this, he made waves
                     at OpenAI, contributing to AI breakthroughs that continue to
-                    shape the industry. Logan’s insights have earned him
+                    shape the industry. Logan&apos;s insights have earned him
                     recognition as a thought leader, amplified by his dynamic
                     presence in the AI community and collaborations with figures
-                    like Dwarkesh Patel. We can’t wait for him to bring his
+                    like Dwarkesh Patel. We can&apos;t wait for him to bring his
                     electrifying vision and experiences to our stage!
                   </BodySpeakerText>
                 </SpeakerTextContainer>
