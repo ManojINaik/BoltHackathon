@@ -1,5 +1,5 @@
 [build]
-  command = "npm install -g npm@8 && npm install --force --legacy-peer-deps && npm run build"
+  command = "npm install -g npm@8 && npm config set legacy-peer-deps true && npm install --force --ignore-scripts && npm run build"
   publish = "build"
 
 [context.production]
