@@ -37,4 +37,6 @@ yarn-error.log*
 
 .specstory/
 
+# Ignore 2023 directory
+/2023.hackthenorth.com/
 2023.hackthenorth.com/
