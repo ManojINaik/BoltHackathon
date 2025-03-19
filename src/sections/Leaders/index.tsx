@@ -9,7 +9,6 @@ import styled from "styled-components";
 const MOBILE_VIEW_WIDTH = 600;
 
 import { leaders } from "./constants";
-import Engineering from "./engineering";
 
 const Leaders: React.FC = () => {
   return (
@@ -113,7 +112,6 @@ const Leaders: React.FC = () => {
           ))}
         </LeadersContainer>
       </ContentWrapper>
-      <Engineering />
     </SectionWrapper>
   );
 };

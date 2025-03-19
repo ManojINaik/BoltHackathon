@@ -111,7 +111,6 @@ export { default as TestimonialCloud4 } from "./testimonials/testimonial-cloud4.
 // UW Eng
 
 export { default as InspiredTextCutout } from "./leaders/inspired.svg";
-export { default as WaterlooEngineering } from "./leaders/waterlooengineering.png";
 
 export { default as AbhinavBoyed } from "./leaders/avatars/abhinav-boyed.png";
 export { default as AdvaitMaybhate } from "./leaders/avatars/advait-maybhate.png";
@@ -141,17 +140,6 @@ export { default as SwadhaRai } from "./leaders/avatars/swadha-rai.png";
 export { default as TomAlterman } from "./leaders/avatars/tom-alterman.png";
 export { default as VartikaManasvi } from "./leaders/avatars/vartika-manasvi.png";
 export { default as ZvezdinBesarabov } from "./leaders/avatars/zvezdin-besarabov.png";
-
-export { default as PortalIn1 } from "./leaders/portal/in1.png";
-export { default as PortalIn2 } from "./leaders/portal/in2.png";
-export { default as PortalIn3 } from "./leaders/portal/in3.png";
-export { default as PortalIn4 } from "./leaders/portal/in4.png";
-export { default as PortalIn5 } from "./leaders/portal/in5.png";
-export { default as PortalOut1 } from "./leaders/portal/out1.png";
-export { default as PortalOut2 } from "./leaders/portal/out2.png";
-export { default as PortalOut3 } from "./leaders/portal/out3.png";
-export { default as PortalOut4 } from "./leaders/portal/out4.png";
-export { default as PortalOut5 } from "./leaders/portal/out5.png";
 
 export { default as Trapezoid } from "./leaders/Trapezoid.png";
 export { default as LucyGuo } from "./leaders/Logan_Kilpatrick.png";
