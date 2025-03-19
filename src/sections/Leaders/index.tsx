@@ -5,10 +5,9 @@ import { SectionId } from "src/constants";
 import { Heading1, Heading2, LargeBodyBold, LargeBodyMedium } from "src/styles";
 import { mediaQueries } from "src/utils";
 import styled from "styled-components";
+import { leaders } from "./constants";
 
 const MOBILE_VIEW_WIDTH = 600;
-
-import { leaders } from "./constants";
 
 const Leaders: React.FC = () => {
   return (
