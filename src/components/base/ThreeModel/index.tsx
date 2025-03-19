@@ -1,15 +1,10 @@
-import {
-  OrbitControls,
-  PerspectiveCamera,
-} from "drei";
-import { Canvas, useFrame, useLoader } from "react-three-fiber";
-import React, { useRef, useEffect } from "react";
-import { Suspense } from "react";
+import React, { useRef, useEffect, Suspense } from "react";
 import styled from "styled-components";
 import * as THREE from "three";
 import { AnimationMixer, AnimationClip, LoopRepeat } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { Canvas, useFrame, useLoader } from "react-three-fiber";
 
 interface ModelProps {
   modelPath: string;
@@ -333,19 +328,19 @@ const Model = ({
     }
   }, [scrollProgress, animationStartTime, animationEndTime, animationName]);
 
-  useFrame(({ clock }) => {
+  useFrame((state) => {
     // Auto-rotate the model if enabled
     if (autoRotate && modelRef.current) {
       // Make rotation smoother by updating less aggressively
       const targetRotation =
-        rotation[1] + Math.sin(clock.getElapsedTime() * 0.15) * 0.1;
+        rotation[1] + Math.sin(state.clock.getElapsedTime() * 0.15) * 0.1;
       modelRef.current.rotation.y +=
         (targetRotation - modelRef.current.rotation.y) * 0.05;
     }
 
     // Always update the animation mixer with smooth transitions if it exists
     if (mixerRef.current && actionRef.current && animationName) {
-      const delta = clock.getDelta();
+      const delta = state.clock.getDelta();
 
       // Apply smooth transition to the animation time
       const currentTime = mixerRef.current.time;
@@ -362,7 +357,7 @@ const Model = ({
       mixerRef.current.update(delta);
 
       // Debug - log animation state periodically
-      if (Math.floor(clock.getElapsedTime() * 10) % 100 === 0) {
+      if (Math.floor(state.clock.getElapsedTime() * 10) % 100 === 0) {
         console.log(
           "Animation running:",
           !actionRef.current.paused,
@@ -444,7 +439,6 @@ const ThreeModel = ({
         />
         <pointLight position={[0, -10, 0]} intensity={0.6} />
         <hemisphereLight intensity={0.7} />
-        <PerspectiveCamera position={[0, 0, 6]} fov={45} />
         <Suspense fallback={null}>
           <Model
             modelPath={modelPath}
@@ -458,7 +452,7 @@ const ThreeModel = ({
             scrollProgress={scrollProgress}
           />
         </Suspense>
-        <OrbitControls />
+        {/* Note: Camera and controls are created automatically in the older version */}
       </Canvas>
     </ModelContainer>
   );
