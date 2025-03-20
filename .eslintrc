@@ -59,6 +59,7 @@
       {
         "ignore": [
           "css",
+          "tw",
           "position",
           "rotation",
           "object",

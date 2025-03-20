@@ -16,6 +16,7 @@ interface ModelProps {
   animationStartTime?: number;
   animationEndTime?: number;
   scrollProgress?: number;
+  disableTextureApplication?: boolean;
 }
 
 const Model = ({
@@ -28,6 +29,7 @@ const Model = ({
   animationStartTime = 0,
   animationEndTime = 10,
   scrollProgress = 0,
+  disableTextureApplication = false,
 }: ModelProps): JSX.Element => {
   const gltf = useLoader(GLTFLoader as any, modelPath) as GLTF;
   const modelRef = useRef<THREE.Group>(null);
@@ -39,7 +41,7 @@ const Model = ({
   const timeRef = useRef<number>(animationStartTime);
 
   useEffect(() => {
-    if (scene) {
+    if (scene && !disableTextureApplication) {
       console.log("Processing model materials...");
 
       // Create texture loader for loading screen texture
@@ -54,7 +56,7 @@ const Model = ({
       screenTexture.wrapS = THREE.ClampToEdgeWrapping;
       screenTexture.wrapT = THREE.ClampToEdgeWrapping;
       screenTexture.repeat.set(0.85, 0.85); // Slightly scaled down
-      screenTexture.offset.set(0.075, 0.075); // Center the image
+      screenTexture.offset.set(0.075, 0.075);
 
       // Preload the Bolt_new.png texture so it's ready
       textureLoader.load(
@@ -206,7 +208,7 @@ const Model = ({
       };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scene, gltf.parser]);
+  }, [scene, gltf.parser, disableTextureApplication]);
 
   useEffect(() => {
     if (scene && animations && animations.length > 0) {
@@ -408,6 +410,7 @@ interface ThreeModelProps {
   animationStartTime?: number;
   animationEndTime?: number;
   scrollProgress?: number;
+  disableTextureApplication?: boolean;
 }
 
 const ThreeModel = ({
@@ -423,6 +426,7 @@ const ThreeModel = ({
   animationStartTime = 3.0,
   animationEndTime = 8.75,
   scrollProgress = 0,
+  disableTextureApplication = false,
 }: ThreeModelProps): JSX.Element => {
   return (
     <ModelContainer className={className} style={{ width, height }}>
@@ -461,6 +465,7 @@ const ThreeModel = ({
             animationStartTime={animationStartTime}
             animationEndTime={animationEndTime}
             scrollProgress={scrollProgress}
+            disableTextureApplication={disableTextureApplication}
           />
         </Suspense>
         {/* Note: Camera and controls are created automatically in the older version */}

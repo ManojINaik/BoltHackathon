@@ -31,7 +31,12 @@ import {
   Bubble3,
   MainTitle,
 } from "src/assets/img";
-import { Button, ContentWrapper, SectionWrapper } from "src/components/base";
+import {
+  Button,
+  ContentWrapper,
+  SectionWrapper,
+  ThreeModel,
+} from "src/components/base";
 import { SectionId } from "src/constants";
 import { Body, LargeBodyBold, LargeBodyMedium, theme } from "src/styles";
 import { mediaQueries } from "src/utils/responsive";
@@ -39,6 +44,163 @@ import styled from "styled-components";
 
 import { MOBILELOCATIONS, DESKTOPLOCATIONS } from "./constants";
 import { useGravity } from "./useGravityAnimation";
+
+const Text = styled(Body)`
+  font-size: 18px;
+  color: ${({ theme }) => theme.colors.secondary.navy};
+  text-align: center;
+  line-height: 160%;
+`;
+
+const StyledImage = styled.img`
+  position: absolute;
+`;
+
+const SubHeadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-top: 32px;
+`;
+
+const StyledCaptionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  ${mediaQueries.tablet} {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+`;
+
+const StyledTitleCaption = styled(LargeBodyBold)`
+  color: ${({ theme }) => theme.colors.secondary.navy};
+`;
+
+const StyledBoltContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-left: 4px;
+`;
+
+const StyledBoltLogo = styled.img`
+  width: 59px;
+  height: 25px;
+  margin: 0 8px;
+  top: 3px;
+  position: relative;
+  ${mediaQueries.tablet} {
+    top: 0px;
+    width: 47px;
+    height: 20px;
+  }
+`;
+
+const StyledContentWrapper = styled(ContentWrapper)`
+  width: 100%;
+  max-width: 1512px;
+  height: 1093px;
+`;
+
+const StyledMainTitle = styled.img`
+  max-width: 1025px;
+  max-height: 210px;
+  margin-top: 192px;
+  margin-bottom: 16px;
+  ${mediaQueries.tablet} {
+    width: 550px;
+    height: auto;
+  }
+
+  ${mediaQueries.largeMobile} {
+    width: 370px;
+    height: auto;
+  }
+
+  ${mediaQueries.smallMobile} {
+    width: 275px;
+    height: auto;
+  }
+`;
+
+const HeadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: ${({ theme }) => theme.colors.text.dark.white};
+  position: relative;
+  z-index: 5;
+`;
+
+const StyledBubble1 = styled.img`
+  position: absolute;
+  left: 100px;
+  top: 550px;
+  opacity: 0;
+  animation: fadeIn 2s 5s forwards;
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
+const StyledBubble2 = styled.img`
+  position: absolute;
+  left: 225px;
+  top: 950px;
+  opacity: 0;
+  animation: fadeIn 2s 5s forwards;
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
+const StyledBubble3 = styled.img`
+  position: absolute;
+  left: 1100px;
+  top: 980px;
+  opacity: 0;
+  animation: fadeIn 2s 5s forwards;
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
+const OrganizerApplicationsClosedContainer = styled.div`
+  ${mediaQueries.tablet} {
+    width: 70%;
+  }
+
+  ${mediaQueries.largeMobile} {
+    width: 90%;
+  }
+`;
+
+const EarthModelContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+`;
 
 const Hero: React.FC = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -180,6 +342,21 @@ const Hero: React.FC = () => {
   return (
     <SectionWrapper id={SectionId.HERO}>
       <StyledContentWrapper>
+        <EarthModelContainer>
+          <ThreeModel
+            modelPath="/assets/models/earth-cartoon/source/earth-cartoon.glb"
+            width="100%"
+            height="100%"
+            position={[0, 1.1, 0]}
+            rotation={[0.2, 0.5, 0.1]}
+            scale={1}
+            autoRotate={true}
+            animationName="Animación"
+            animationStartTime={50}
+            animationEndTime={0}
+            disableTextureApplication={true}
+          />
+        </EarthModelContainer>
         <HeadingContainer>
           <StyledMainTitle src={MainTitle} alt="main-title" />
           <StyledCaptionContainer>
@@ -188,7 +365,11 @@ const Hero: React.FC = () => {
             </StyledTitleCaption>
             <StyledBoltContainer>
               <StyledTitleCaption> • </StyledTitleCaption>
-              <StyledBoltLogo src={BoltLogo} alt="Bolt Logo" />
+              <StyledBoltLogo
+                src={BoltLogo}
+                alt="Hack the North"
+                style={{ position: "relative" }}
+              />
               <StyledTitleCaption>Official Member</StyledTitleCaption>
             </StyledBoltContainer>
           </StyledCaptionContainer>
@@ -461,149 +642,5 @@ const Hero: React.FC = () => {
     </SectionWrapper>
   );
 };
-
-const Text = styled(Body)`
-  font-size: 18px;
-  color: ${({ theme }) => theme.colors.secondary.navy};
-  text-align: center;
-  line-height: 160%;
-`;
-
-const StyledImage = styled.img`
-  position: absolute;
-`;
-
-const SubHeadingContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  margin-top: 32px;
-`;
-
-const StyledCaptionContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  ${mediaQueries.tablet} {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-`;
-
-const StyledTitleCaption = styled(LargeBodyBold)`
-  color: ${({ theme }) => theme.colors.secondary.navy};
-`;
-
-const StyledBoltContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  margin-left: 4px;
-`;
-
-const StyledBoltLogo = styled.img`
-  width: 59px;
-  height: 25px;
-  margin: 0 8px;
-  top: 3px;
-  position: relative;
-  ${mediaQueries.tablet} {
-    top: 0px;
-    width: 47px;
-    height: 20px;
-  }
-`;
-
-const StyledContentWrapper = styled(ContentWrapper)`
-  width: 100%;
-  max-width: 1512px;
-  height: 1093px;
-`;
-
-const StyledMainTitle = styled.img`
-  max-width: 1025px;
-  max-height: 210px;
-  margin-top: 192px;
-  margin-bottom: 16px;
-  ${mediaQueries.tablet} {
-    width: 550px;
-    height: auto;
-  }
-
-  ${mediaQueries.largeMobile} {
-    width: 370px;
-    height: auto;
-  }
-
-  ${mediaQueries.smallMobile} {
-    width: 275px;
-    height: auto;
-  }
-`;
-
-const HeadingContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  color: ${({ theme }) => theme.colors.text.dark.white};
-`;
-
-const StyledBubble1 = styled.img`
-  position: absolute;
-  left: 100px;
-  top: 550px;
-  opacity: 0;
-  animation: fadeIn 2s 5s forwards;
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-`;
-
-const StyledBubble2 = styled.img`
-  position: absolute;
-  left: 225px;
-  top: 950px;
-  opacity: 0;
-  animation: fadeIn 2s 5s forwards;
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-`;
-
-const StyledBubble3 = styled.img`
-  position: absolute;
-  left: 1100px;
-  top: 980px;
-  opacity: 0;
-  animation: fadeIn 2s 5s forwards;
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-`;
-
-const OrganizerApplicationsClosedContainer = styled.div`
-  ${mediaQueries.tablet} {
-    width: 70%;
-  }
-
-  ${mediaQueries.largeMobile} {
-    width: 90%;
-  }
-`;
 
 export default Hero;
