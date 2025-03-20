@@ -342,11 +342,8 @@ const Model = ({
   useFrame((state) => {
     // Auto-rotate the model if enabled
     if (autoRotate && modelRef.current) {
-      // Make rotation smoother by updating less aggressively
-      const targetRotation =
-        rotation[1] + Math.sin(state.clock.getElapsedTime() * 0.15) * 0.1;
-      modelRef.current.rotation.y +=
-        (targetRotation - modelRef.current.rotation.y) * 0.05;
+      // More pronounced rotation effect
+      modelRef.current.rotation.y += 0.002; // Continuous rotation at fixed speed
     }
 
     // Always update the animation mixer with smooth transitions if it exists

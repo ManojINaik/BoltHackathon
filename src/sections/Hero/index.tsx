@@ -347,12 +347,12 @@ const Hero: React.FC = () => {
             modelPath="/assets/models/earth-cartoon/source/earth-cartoon.glb"
             width="100%"
             height="100%"
-            position={[0, 1.1, 0]}
-            rotation={[0.2, 0.5, 0.1]}
-            scale={1}
+            position={[0, 1.1, -5]}
+            rotation={[0.2, 0.5, 0]}
+            scale={3.4}
             autoRotate={true}
             animationName="Animación"
-            animationStartTime={50}
+            animationStartTime={20}
             animationEndTime={0}
             disableTextureApplication={true}
           />
