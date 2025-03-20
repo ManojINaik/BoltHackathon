@@ -352,8 +352,8 @@ const Hero: React.FC = () => {
             scale={3.4}
             autoRotate={true}
             animationName="Animación"
-            animationStartTime={20}
-            animationEndTime={0}
+            animationStartTime={0}
+            animationEndTime={100}
             disableTextureApplication={true}
           />
         </EarthModelContainer>

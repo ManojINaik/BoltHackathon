@@ -342,39 +342,48 @@ const Model = ({
   useFrame((state) => {
     // Auto-rotate the model if enabled
     if (autoRotate && modelRef.current) {
-      // More pronounced rotation effect
-      modelRef.current.rotation.y += 0.002; // Continuous rotation at fixed speed
+      // Earth model will have continuous rotation at fixed speed
+      if (modelPath.includes("earth-cartoon")) {
+        modelRef.current.rotation.y += 0.005; // Faster rotation for Earth
+      } else {
+        // For other models like laptop, use subtle oscillation
+        const targetRotation =
+          rotation[1] + Math.sin(state.clock.getElapsedTime() * 0.15) * 0.1;
+        modelRef.current.rotation.y +=
+          (targetRotation - modelRef.current.rotation.y) * 0.05;
+      }
     }
 
     // Always update the animation mixer with smooth transitions if it exists
     if (mixerRef.current && actionRef.current && animationName) {
       const delta = state.clock.getDelta();
+      
+      // For Earth model, let the animation play continuously without scroll influence
+      if (modelPath.includes("earth-cartoon")) {
+        mixerRef.current.update(delta);
+      } else {
+        // For other models like laptop, use scroll-based animation timing
+        const currentTime = mixerRef.current.time;
+        const targetTime = timeRef.current;
 
-      // Apply smooth transition to the animation time
-      const currentTime = mixerRef.current.time;
-      const targetTime = timeRef.current;
+        // Reduced smoothing factor for slower, more gentle transitions
+        const lerpFactor = 0.04; // Reduced for slower, smoother transitions
 
-      // Reduced smoothing factor for slower, more gentle transitions
-      const lerpFactor = 0.04; // Reduced for slower, smoother transitions
+        // Calculate the new time with smoothing
+        const newTime = currentTime + (targetTime - currentTime) * lerpFactor;
 
-      // Calculate the new time with smoothing
-      const newTime = currentTime + (targetTime - currentTime) * lerpFactor;
+        // Set the new time directly on the mixer
+        mixerRef.current.setTime(newTime);
 
-      // Set the new time directly on the mixer
-      mixerRef.current.setTime(newTime);
-
-      // Still need to update the mixer with delta time
-      mixerRef.current.update(delta);
+        // Still need to update the mixer with delta time
+        mixerRef.current.update(delta);
+      }
 
       // Debug - log animation state periodically
       if (Math.floor(state.clock.getElapsedTime() * 10) % 100 === 0) {
         console.log(
-          "Animation running:",
+          `Model: ${modelPath.split("/").pop()}, Animation running:`,
           !actionRef.current.paused,
-          "Current time:",
-          currentTime.toFixed(2),
-          "Target time:",
-          targetTime.toFixed(2),
           "TimeScale:",
           actionRef.current.timeScale
         );
