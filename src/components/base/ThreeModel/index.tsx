@@ -205,17 +205,48 @@ const Model = ({
         } else {
           console.log("✅ Successfully applied texture to material.002!");
         }
+
+        if (modelPath.includes("earth-cartoon")) {
+          // Apply website color theme to Earth model
+          scene.traverse((object) => {
+            if (object instanceof THREE.Mesh && object.material) {
+              // Check if it's a material we should apply color to
+              if (
+                object.material.name.includes("material.002") ||
+                object.material.name.includes("material.004")
+              ) {
+                // For blue parts (oceans)
+                object.material.color.set("#9CB1FC"); // Using primary.blue from the theme
+              } else if (
+                object.material.name.includes("material.001") ||
+                object.material.name.includes("material.003")
+              ) {
+                // For green parts (land)
+                object.material.color.set("#BFEFDE"); // Using primary.green from the theme
+              }
+              object.material.needsUpdate = true;
+            }
+          });
+          console.log("✅ Applied website color theme to Earth model");
+        } else {
+          console.log("✅ Successfully applied texture to material.002!");
+        }
       };
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scene, gltf.parser, disableTextureApplication]);
 
   useEffect(() => {
     if (scene && animations && animations.length > 0) {
-      console.log(
-        "Available animations in model:",
-        animations.map((a) => a.name).join(", ")
-      );
+      // Log all available animations with detailed information
+      if (modelPath.includes("earth-cartoon")) {
+        console.log("========== EARTH MODEL ANIMATIONS ==========");
+        animations.forEach((anim, index) => {
+          console.log(
+            `Animation ${index}: ${anim.name}, Duration: ${anim.duration}, UUID: ${anim.uuid}`
+          );
+        });
+        console.log("============================================");
+      }
 
       // Create animation mixer
       if (!mixerRef.current) {
@@ -228,7 +259,7 @@ const Model = ({
       }
 
       // Only proceed with animation if animationName is provided
-      if (!animationName) {
+      if (!animationName && !modelPath.includes("earth-cartoon")) {
         console.log("No animation name provided - static pose mode");
         return;
       }
@@ -236,60 +267,112 @@ const Model = ({
       // Try to find the requested animation, or use the first one available
       let clip: AnimationClip | undefined;
 
-      // First look for exact match
-      clip = animations.find((anim) => anim.name === animationName);
-      console.log(
-        "Looking for animation:",
-        animationName,
-        "Found:",
-        clip ? "yes" : "no"
-      );
+      // SPECIAL HANDLING FOR EARTH MODEL
+      if (modelPath.includes("earth-cartoon")) {
+        if (animations.length === 0) {
+          console.warn("Earth model has no animations!");
+          return;
+        }
 
-      // If no exact match, try case-insensitive match
-      if (!clip) {
-        clip = animations.find(
-          (anim) => anim.name.toLowerCase() === animationName.toLowerCase()
-        );
+        // Always use the animation with index 1 if it exists, otherwise index 0
+        const animationIndex = animations.length > 1 ? 1 : 0;
+        clip = animations[animationIndex];
+
         console.log(
-          "Trying case-insensitive match. Found:",
+          `EARTH MODEL: Using animation at index ${animationIndex}:`,
+          clip.name,
+          "Duration:",
+          clip.duration,
+          "Tracks:",
+          clip.tracks.length
+        );
+      } else {
+        // Normal animation lookup for other models
+
+        // First look for exact match
+        clip = animations.find((anim) => anim.name === animationName);
+        console.log(
+          "Looking for animation:",
+          animationName,
+          "Found:",
           clip ? "yes" : "no"
         );
-      }
 
-      // If still no match, try to find an animation containing "Animation"
-      if (!clip) {
-        const animationClip = animations.find(
-          (anim) => anim.name && anim.name.includes("Animation")
-        );
-        if (animationClip) {
-          clip = animationClip;
-          console.log(
-            "Found animation containing 'Animation':",
-            animationClip.name
+        // If no exact match, try case-insensitive match
+        if (!clip && animationName) {
+          clip = animations.find(
+            (anim) => anim.name.toLowerCase() === animationName.toLowerCase()
           );
+          console.log(
+            "Trying case-insensitive match. Found:",
+            clip ? "yes" : "no"
+          );
+        }
+
+        // If still no match, try to find an animation containing "Animation"
+        if (!clip) {
+          const animationClip = animations.find(
+            (anim) => anim.name && anim.name.includes("Animation")
+          );
+          if (animationClip) {
+            clip = animationClip;
+            console.log(
+              "Found animation containing 'Animation':",
+              animationClip.name
+            );
+          }
+        }
+
+        // If still no match, use the first animation
+        if (!clip && animations.length > 0) {
+          clip = animations[0];
+          console.log("Using first available animation:", clip.name);
         }
       }
 
-      // If still no match, use the first animation
-      if (!clip && animations.length > 0) {
-        clip = animations[0];
-        console.log("Using first available animation:", clip.name);
-      }
-
       if (clip) {
+        // Log if this is for Earth model
+        if (modelPath.includes("earth-cartoon")) {
+          console.log(
+            "EARTH ANIMATION SETUP: Using clip:",
+            clip.name,
+            "Duration:",
+            clip.duration,
+            "Tracks:",
+            clip.tracks.map((t) => t.name).join(", ")
+          );
+        }
+
         actionRef.current = mixerRef.current.clipAction(clip);
-        actionRef.current.clampWhenFinished = true;
+        actionRef.current.clampWhenFinished = false;
         actionRef.current.setLoop(LoopRepeat, Infinity);
-        // Use a moderate timeScale for smoother animation
-        actionRef.current.timeScale = 1.0;
+
+        // Set appropriate timeScale based on model type
+        if (modelPath.includes("earth-cartoon")) {
+          actionRef.current.timeScale = 1.0; // Normal speed for Earth
+          // Make sure we're not in paused state
+          actionRef.current.paused = false;
+          // Enable animation immediately for Earth
+          actionRef.current.enabled = true;
+          // Set animation weight to ensure it's visible
+          actionRef.current.weight = 1;
+          console.log("EARTH ANIMATION: Action created and ready to play");
+        } else {
+          actionRef.current.timeScale = 1.0;
+        }
+
         actionRef.current.reset().play();
-        console.log("Animation started:", clip.name);
+        console.log(
+          `Animation started: ${clip.name} (${modelPath.split("/").pop()})`
+        );
 
         // Force an update of the mixer to ensure animation runs
-        mixerRef.current.update(1);
+        mixerRef.current.update(0.1);
       } else {
-        console.warn("No animations found in model");
+        console.warn(`No animations found in model: ${modelPath}`);
       }
+    } else if (modelPath.includes("earth-cartoon")) {
+      console.warn("Earth model: No animations available or scene not loaded");
     }
 
     return () => {
@@ -297,7 +380,7 @@ const Model = ({
         mixerRef.current.stopAllAction();
       }
     };
-  }, [scene, animations, animationName]);
+  }, [scene, animations, animationName, modelPath]);
 
   useEffect(() => {
     // Skip if we don't have a mixer or action
@@ -305,7 +388,17 @@ const Model = ({
       return;
     }
 
-    // If animation name is undefined, ensure animation is stopped (static pose)
+    // For Earth model, we always want the animation to play, regardless of animationName
+    if (modelPath.includes("earth-cartoon")) {
+      // Make sure action is not stopped for Earth
+      if (!actionRef.current.isRunning()) {
+        actionRef.current.play();
+      }
+      return;
+    }
+
+    // For other models, standard behavior:
+    // If animation name is undefined, ensure animation is stopped
     if (!animationName) {
       actionRef.current.stop();
       return;
@@ -337,14 +430,20 @@ const Model = ({
         );
       }
     }
-  }, [scrollProgress, animationStartTime, animationEndTime, animationName]);
+  }, [
+    scrollProgress,
+    animationStartTime,
+    animationEndTime,
+    animationName,
+    modelPath,
+  ]);
 
   useFrame((state) => {
     // Auto-rotate the model if enabled
     if (autoRotate && modelRef.current) {
       // Earth model will have continuous rotation at fixed speed
       if (modelPath.includes("earth-cartoon")) {
-        modelRef.current.rotation.y += 0.005; // Faster rotation for Earth
+        modelRef.current.rotation.y += 0.005; // Constant rotation for Earth
       } else {
         // For other models like laptop, use subtle oscillation
         const targetRotation =
@@ -355,12 +454,37 @@ const Model = ({
     }
 
     // Always update the animation mixer with smooth transitions if it exists
-    if (mixerRef.current && actionRef.current && animationName) {
+    if (
+      mixerRef.current &&
+      actionRef.current &&
+      (animationName || modelPath.includes("earth-cartoon"))
+    ) {
       const delta = state.clock.getDelta();
-      
+
       // For Earth model, let the animation play continuously without scroll influence
       if (modelPath.includes("earth-cartoon")) {
+        // Force Earth model animation to play continuously
+        if (actionRef.current.paused) {
+          console.log("Unpausing Earth animation");
+          actionRef.current.paused = false;
+        }
+
+        // Force Earth animation to be enabled
+        if (!actionRef.current.enabled) {
+          console.log("Enabling Earth animation");
+          actionRef.current.enabled = true;
+        }
+
+        // Update continuously
         mixerRef.current.update(delta);
+
+        // Log animation time periodically for debugging (less frequently)
+        if (Math.floor(state.clock.getElapsedTime()) % 10 === 0) {
+          console.log(
+            "Earth animation time:",
+            mixerRef.current.time.toFixed(2)
+          );
+        }
       } else {
         // For other models like laptop, use scroll-based animation timing
         const currentTime = mixerRef.current.time;
@@ -379,13 +503,19 @@ const Model = ({
         mixerRef.current.update(delta);
       }
 
-      // Debug - log animation state periodically
-      if (Math.floor(state.clock.getElapsedTime() * 10) % 100 === 0) {
+      // Debug - log animation state periodically (but less frequently)
+      if (Math.floor(state.clock.getElapsedTime()) % 30 === 0) {
         console.log(
           `Model: ${modelPath.split("/").pop()}, Animation running:`,
           !actionRef.current.paused,
           "TimeScale:",
-          actionRef.current.timeScale
+          actionRef.current.timeScale,
+          "Enabled:",
+          actionRef.current.enabled,
+          "Weight:",
+          actionRef.current.weight,
+          "Time:",
+          mixerRef.current.time.toFixed(2)
         );
       }
     }

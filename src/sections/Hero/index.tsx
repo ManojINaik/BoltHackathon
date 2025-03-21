@@ -38,7 +38,7 @@ import {
   ThreeModel,
 } from "src/components/base";
 import { SectionId } from "src/constants";
-import { Body, LargeBodyBold, LargeBodyMedium, theme } from "src/styles";
+import { Body, LargeBodyBold, theme } from "src/styles";
 import { mediaQueries } from "src/utils/responsive";
 import styled from "styled-components";
 
@@ -347,13 +347,13 @@ const Hero: React.FC = () => {
             modelPath="/assets/models/earth-cartoon/source/earth-cartoon.glb"
             width="100%"
             height="100%"
-            position={[0, 1.1, -5]}
+            position={[-23, 16, -40]}
             rotation={[0.2, 0.5, 0]}
-            scale={3.4}
+            scale={4.0}
             autoRotate={true}
             animationName="Animación"
             animationStartTime={0}
-            animationEndTime={100}
+            animationEndTime={5}
             disableTextureApplication={true}
           />
         </EarthModelContainer>
@@ -378,7 +378,7 @@ const Hero: React.FC = () => {
           <OrganizerApplicationsClosedContainer>
             <Text>
               Thank you for your interest in joining Bolt.new 2025!{" "}
-              <b>Organizer applications are now closed.</b>
+              <b>Organizer applications are now Open.</b>
             </Text>
           </OrganizerApplicationsClosedContainer>
           <a
