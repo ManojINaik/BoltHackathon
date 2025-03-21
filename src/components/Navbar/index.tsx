@@ -113,6 +113,7 @@ const Container = styled.nav.attrs<TContainerProps>(
       transform: isHidden
         ? `translateY(-${NAVBAR_HEIGHT_PX}px)`
         : "translateY(0)",
+      boxShadow: isScrolledDown ? "0 4px 20px rgba(0, 0, 0, 0.08)" : "none",
     },
   })
 )<TContainerProps>`
@@ -120,11 +121,11 @@ const Container = styled.nav.attrs<TContainerProps>(
   width: 100%;
   right: 0;
   top: 0;
-
   z-index: 99;
-  backdrop-filter: blur(30px);
-
-  transition: background-color 250ms, transform 250ms;
+  backdrop-filter: blur(10px);
+  transition: all 350ms ease;
+  border-bottom: ${(props) =>
+    props.isScrolledDown ? "1px solid rgba(255, 255, 255, 0.1)" : "none"};
 `;
 
 const InnerContainer = styled.div`
@@ -133,6 +134,7 @@ const InnerContainer = styled.div`
   margin: auto;
   align-items: center;
   justify-content: space-between;
+  padding: 12px 0;
 
   @media (max-width: 1202px) {
     margin: 0px 32px;
@@ -140,6 +142,7 @@ const InnerContainer = styled.div`
 
   ${mediaQueries.tablet} {
     margin: auto;
+    padding: 10px 0;
   }
 `;
 

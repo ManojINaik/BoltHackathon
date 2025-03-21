@@ -238,7 +238,7 @@ const Stats = (): JSX.Element => {
               height="100%"
               position={[0, -0.4, 0]}
               rotation={[0.15, 0, 0]}
-              scale={12.5}
+              scale={15.5}
               autoRotate={true}
               animationName={
                 USE_ANIMATION && laptopInView ? "Animation" : undefined

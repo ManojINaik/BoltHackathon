@@ -169,6 +169,7 @@ const fadeOut = keyframes`
 
 const Car1 = styled.img<{ inView: boolean }>`
   position: absolute;
+  scale: 0.9;
   width: 294px;
   top: 2%;
   left: 56%;

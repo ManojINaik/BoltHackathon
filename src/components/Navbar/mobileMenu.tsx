@@ -25,6 +25,110 @@ export interface TMobileMenuProps extends NavBarProps {
   toggleIsOpen: () => void;
 }
 
+// Styled components
+const Container = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 98;
+`;
+
+const Background = styled(motion.div)`
+  position: relative;
+  width: 100vw;
+  height: calc(100vh + ${NAVBAR_HEIGHT_PX}px);
+  background: ${theme.colors.secondary.navy};
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 90% 10%,
+      rgba(124, 158, 255, 0.15),
+      transparent 40%
+    );
+    z-index: 0;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const List = styled(motion.ul)`
+  top: 25vh;
+  left: 0;
+  padding: 0px 10%;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+`;
+
+const SocialList = styled(motion.ul)`
+  top: 25vh;
+  left: 0;
+  padding: 0px 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+`;
+
+const ListItem = styled(motion.li)`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  a {
+    text-decoration: none;
+    padding: 8px 16px;
+    position: relative;
+    display: block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: ${theme.colors.primary.blue};
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    &:hover::after {
+      width: 70%;
+    }
+  }
+`;
+
+const StyledBodyBold = styled(BodyBold)`
+  color: white;
+  font-size: 20px;
+  transition: all 0.3s ease;
+
+  ${ListItem}:hover & {
+    color: ${theme.colors.primary.blue};
+    text-shadow: 0 0 8px rgba(124, 158, 255, 0.6);
+  }
+`;
+
 // Credits: https://codesandbox.io/s/framer-motion-side-menu-mx2rw?fontsize=14&module=/src/Example.tsx&file=/src/Example.tsx
 const MobileMenu: React.FC<TMobileMenuProps> = ({
   isHidden,
@@ -133,59 +237,5 @@ const MobileMenu: React.FC<TMobileMenuProps> = ({
     </Container>
   );
 };
-
-const StyledBodyBold = styled(BodyBold)`
-  color: white;
-`;
-
-const List = styled(motion.ul)`
-  top: 25vh;
-  left: 0;
-  padding: 0px 10%;
-  width: 100%;
-`;
-
-const SocialList = styled(motion.ul)`
-  top: 25vh;
-  left: 0;
-  padding: 0px 10%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const ListItem = styled(motion.li)`
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-
-  a {
-    text-decoration: none;
-  }
-`;
-
-const Container = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-`;
-
-const Background = styled(motion.div)`
-  position: relative;
-  width: 100vw;
-  height: calc(100vh + ${NAVBAR_HEIGHT_PX}px);
-  background: ${theme.colors.secondary.navy};
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
 
 export default MobileMenu;

@@ -50,10 +50,18 @@ const Text = styled(Body)`
   color: ${({ theme }) => theme.colors.secondary.navy};
   text-align: center;
   line-height: 160%;
+  max-width: 600px;
+  margin: 0 auto;
 `;
 
 const StyledImage = styled.img`
   position: absolute;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 `;
 
 const SubHeadingContainer = styled.div`
@@ -63,6 +71,18 @@ const SubHeadingContainer = styled.div`
   align-items: center;
   gap: 32px;
   margin-top: 32px;
+  animation: fadeIn 0.8s ease-in-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 
 const StyledCaptionContainer = styled.div`
@@ -78,6 +98,7 @@ const StyledCaptionContainer = styled.div`
 
 const StyledTitleCaption = styled(LargeBodyBold)`
   color: ${({ theme }) => theme.colors.secondary.navy};
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const StyledBoltContainer = styled.div`
@@ -86,6 +107,11 @@ const StyledBoltContainer = styled.div`
   justify-content: center;
   flex-direction: row;
   margin-left: 4px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const StyledBoltLogo = styled.img`
@@ -94,6 +120,7 @@ const StyledBoltLogo = styled.img`
   margin: 0 8px;
   top: 3px;
   position: relative;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
   ${mediaQueries.tablet} {
     top: 0px;
     width: 47px;
@@ -105,6 +132,8 @@ const StyledContentWrapper = styled(ContentWrapper)`
   width: 100%;
   max-width: 1512px;
   height: 1093px;
+  position: relative;
+  z-index: 2;
 `;
 
 const StyledMainTitle = styled.img`
@@ -112,6 +141,20 @@ const StyledMainTitle = styled.img`
   max-height: 210px;
   margin-top: 192px;
   margin-bottom: 16px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+  animation: fadeInUp 1.2s ease-out;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   ${mediaQueries.tablet} {
     width: 550px;
     height: auto;
@@ -144,11 +187,24 @@ const StyledBubble1 = styled.img`
   left: 100px;
   top: 550px;
   opacity: 0;
-  animation: fadeIn 2s 5s forwards;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+  animation: fadeIn 2s 3s forwards, floatAnimation 6s ease-in-out infinite;
 
   @keyframes fadeIn {
     to {
       opacity: 1;
+    }
+  }
+
+  @keyframes floatAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0);
     }
   }
 `;
@@ -158,7 +214,9 @@ const StyledBubble2 = styled.img`
   left: 225px;
   top: 950px;
   opacity: 0;
-  animation: fadeIn 2s 5s forwards;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+  animation: fadeIn 2s 3.5s forwards,
+    floatAnimation 7s ease-in-out infinite 0.5s;
 
   @keyframes fadeIn {
     to {
@@ -172,7 +230,8 @@ const StyledBubble3 = styled.img`
   left: 1100px;
   top: 980px;
   opacity: 0;
-  animation: fadeIn 2s 5s forwards;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+  animation: fadeIn 2s 4s forwards, floatAnimation 8s ease-in-out infinite 1s;
 
   @keyframes fadeIn {
     to {
